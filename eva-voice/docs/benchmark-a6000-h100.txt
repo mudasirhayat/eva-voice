@@ -1,0 +1,28 @@
+SesameAI TTS System
+====================
+
+a6000
+
+Enter text (or press Ctrl+C to exit): hey, it's Eva. we're going to the moon
+> hey, it's Eva. ... [Audio: 1.80s in 0.92s, RTF: 1.96x]
+> we're going to the moon ... [Audio: 1.56s in 0.73s, RTF: 2.12x]
+Export complete: 3.36 seconds of audio
+
+h100
+
+Enter text (or press Ctrl+C to exit): hey, it's Eva. we're going to the moon
+> hey, it's Eva. ... [Audio: 1.80s in 0.91s, RTF: 1.97x]
+> we're going to the moon ... [Audio: 1.40s in 0.62s, RTF: 2.24x]
+Export complete: 3.20 seconds of audio
+
+Enter text (or press Ctrl+C to exit): um no i dont think so. its actually not that complicated, but we can try to break it down to make it easier to understand
+> um no i dont think so. ... [Audio: 2.12s in 1.13s, RTF: 1.88x]
+> its actually not that complicated, but we can try to break it down to make it easier to understand ... [Audio: 7.88s in 4.84s, RTF: 1.63x]
+Export complete: 10.00 seconds of audio
+
+Enter text (or press Ctrl+C to exit): ^C
+Exiting...
+(venv) ubuntu@104-171-203-80:~/EVA01/sesameai-tts$ exit
+logout
+Connection to 104.171.203.80 closed.
+PS C:\Users\ORBITALFOX\Downloads>
