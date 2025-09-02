@@ -36,9 +36,12 @@ class LLMHandler:
             # sys.stdout = open(os.devnull, 'w')
             try:
                 self.model = AutoModelForCausalLM.from_pretrained(
-                    self.model_name,
-                    torch_dtype="float16", # Use auto for mixed precision based on model config/hardware
-                    device_map=device_map_setting
+try:
+    self.model = torch.load(self.model_name)
+except FileNotFoundError:
+    print("Model file not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
                 )
                 self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
                 # Check if tokenizer has pad_token, add if necessary (common for generation)
