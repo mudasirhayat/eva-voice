@@ -35,9 +35,11 @@ def watermark(
     audio_array_44khz = torchaudio.functional.resample(audio_array, orig_freq=sample_rate, new_freq=44100)
     encoded, _ = watermarker.encode_wav(audio_array_44khz, 44100, watermark_key, calc_sdr=False, message_sdr=36)
 
+try:
     output_sample_rate = min(44100, sample_rate)
     encoded = torchaudio.functional.resample(encoded, orig_freq=44100, new_freq=output_sample_rate)
-    return encoded, output_sample_rate
+except Exception as e:
+    print(f"An error occurred
 
 
 @torch.inference_mode()
