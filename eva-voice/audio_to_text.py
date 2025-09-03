@@ -44,10 +44,12 @@ def audio_to_text(audio_path: str) -> str:
     inputs = processor(waveform, sampling_rate=sample_rate, return_tensors="pt", padding=True)
 
     with torch.inference_mode():
-        logits = model(inputs.input_values).logits
-
+try:
+    logits = model(inputs.input_values).logits
     predicted_ids = torch.argmax(logits, dim=-1)
     transcription = processor.decode(predicted_ids[0])
+except Exception as e:
+    print(f"An error occurred: {
     
     return str(transcription).capitalize()
 
