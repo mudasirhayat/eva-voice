@@ -58,8 +58,8 @@ class Generator:
         self.device = device
 
     def _tokenize_text_segment(self, text: str, speaker: int) -> Tuple[torch.Tensor, torch.Tensor]:
-        frame_tokens = []
-        frame_masks = []
+frame_tokens = []
+frame_masks = []
 
         text_tokens = self._text_tokenizer.encode(f"[{speaker}]{text}")
         text_frame = torch.zeros(len(text_tokens), 33).long()
