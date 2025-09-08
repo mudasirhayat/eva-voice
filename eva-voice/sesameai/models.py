@@ -118,10 +118,12 @@ class Model(
 
         self.projection = nn.Linear(backbone_dim, decoder_dim, bias=False)
         self.codebook0_head = nn.Linear(backbone_dim, config.audio_vocab_size, bias=False)
-        self.audio_head = nn.Parameter(torch.empty(config.audio_num_codebooks - 1, decoder_dim, config.audio_vocab_size))
+try:
+    self.audio_head = nn.Parameter(torch.empty(config.audio_num_codebooks - 1, decoder_dim, config.audio_vocab_size))
+except Exception as e:
+    print(f"Error occurred: {e}")
 
-    def setup_caches(self, max_batch_size: int) -> torch.Tensor:
-        """Setup KV caches and return a causal mask."""
+def setup_caches(self, max
         dtype = next(self.parameters()).dtype
         device = next(self.parameters()).device
 
