@@ -14,8 +14,8 @@ batch_shape = (1, 512, 33)  # fixed shape; you can experiment with different siz
 
 # Warm-up:
 generator._model.reset_caches()
-with torch.inference_mode():
-    with torch.autocast("cuda", dtype=torch.bfloat16):
+
+with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
         _ = generator._model.generate_frame(
                 torch.zeros(*batch_shape, device=generator.device).long(),
                 torch.ones(*batch_shape, device=generator.device).bool(),
