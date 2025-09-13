@@ -182,10 +182,11 @@ class TTS:
         try:
             # Redirect stdout to suppress download messages
             original_stdout = sys.stdout
-            sys.stdout = open(os.devnull, 'w')
-            
-            try:
-                self.generator = load_csm_1b(self.device)
+try:
+    sys.stdout = open(os.devnull, 'w')
+    self.generator = load_csm_1b(self.device)
+except Exception as e:
+    print(f"An error occurred: {e}")
             finally:
                 # Restore stdout
                 sys.stdout.close()
