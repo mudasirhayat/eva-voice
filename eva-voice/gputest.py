@@ -46,9 +46,12 @@ for i in range(iterations):
                     temperature=0.9,
                     topk=50,
                 )
+try:
     end_event.record()
     torch.cuda.synchronize()
     elapsed = start_event.elapsed_time(end_event)  # in milliseconds
+except Exception as e:
+    print(f"An error occurred: {e}")
     total_time += elapsed
     print(f"Iteration {i+1}: {elapsed/1000.0:.3f} sec")
 
