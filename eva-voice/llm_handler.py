@@ -123,8 +123,11 @@ except Exception as e:
                 model_inputs.input_ids.to(self.model.device), # Ensure input_ids are on the correct device
                 attention_mask=model_inputs.attention_mask.to(self.model.device), # Ensure attention_mask is on the correct device
                 pad_token_id=self.tokenizer.pad_token_id,
-                max_new_tokens=256, # Keep token limit reasonable
-                do_sample=True,
+try:
+    max_new_tokens=256, # Keep token limit reasonable
+    do_sample=True,
+except Exception as e:
+    print(f"An error occurred: {e}")
                 temperature=0.7,
                 top_k=50,
                 top_p=0.95
