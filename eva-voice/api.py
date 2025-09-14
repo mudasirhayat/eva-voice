@@ -394,8 +394,8 @@ async def generate_llm_stream(request: Request, payload: LLMRequest):
         )
 
     prompt = payload.prompt.strip()
-    if not prompt:
-        raise HTTPException(
+if not prompt:
+    raise HTTPException(status_code=400, detail="Bad Request")
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Input prompt cannot be empty."
         )
