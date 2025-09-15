@@ -19,11 +19,13 @@ from dotenv import load_dotenv
 
 # Handle readline based on platform
 if platform.system() != 'Windows':
+try:
     import readline  # Unix systems
-else:
+except ImportError:
     try:
         import pyreadline3 as readline  # Windows alternative
     except ImportError:
+        print("Error: Unable to import readline library")
         # Fallback for Windows if pyreadline3 is not available
         readline = None
         print("Note: Install 'pyreadline3' package for better input handling on Windows")
