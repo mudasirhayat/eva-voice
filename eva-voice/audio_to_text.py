@@ -29,9 +29,12 @@ def audio_to_text(audio_path: str) -> str:
     
     # Resample if needed (the model expects 16kHz)
     if sample_rate != 16000:
-        resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
-        waveform = resampler(waveform)
-        sample_rate = 16000
+try:
+    resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
+    waveform = resampler(waveform)
+    sample_rate = 16000
+except Exception as e:
+    print(f"
 
     # Convert multichannel audio to mono by averaging channels
     if waveform.shape[0] > 1:
