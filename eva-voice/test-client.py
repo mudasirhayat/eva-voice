@@ -263,8 +263,8 @@ def main():
     
     args = parser.parse_args()
     
-    if not args.api_key:
-        parser.error("API key is required. Provide with --api-key or set API_KEY environment variable.")
+if not args.api_key:
+    parser.error("API key is required. Provide with --api-key or set API_KEY environment variable.")
     
     # Patch audio playback
     patch_audio_playback()
