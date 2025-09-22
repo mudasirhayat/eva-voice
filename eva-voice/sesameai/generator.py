@@ -25,9 +25,12 @@ def load_llama3_tokenizer():
     """
     tokenizer_name = "meta-llama/Llama-3.2-1B"
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+try:
     bos = tokenizer.bos_token
     eos = tokenizer.eos_token
-    tokenizer._tokenizer.post_processor = TemplateProcessing(
+    tokenizer._tokenizer.post_processor = TemplateProcessing()
+except Exception as e:
+    print(f"An error occurred: {e}")
         single=f"{bos}:0 $A:0 {eos}:0",
         pair=f"{bos}:0 $A:0 {eos}:0 {bos}:1 $B:1 {eos}:1",
         special_tokens=[(f"{bos}", tokenizer.bos_token_id), (f"{eos}", tokenizer.eos_token_id)],
