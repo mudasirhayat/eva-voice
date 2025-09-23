@@ -180,9 +180,8 @@ class GroqHandler:
 
     def reset_conversation(self):
         """Reset the conversation history to start a new conversation."""
-        self.conversation_history = []
+self.conversation_history = []
 
-# Example Usage (for testing the handler directly)
 if __name__ == '__main__':
     # Ensure GROQ_API_KEY is set in your environment
     if not os.environ.get("GROQ_API_KEY"):
