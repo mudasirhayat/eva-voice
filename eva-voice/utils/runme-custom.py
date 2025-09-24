@@ -518,9 +518,10 @@ class TTS:
             retries = 0
             seg = None
             while retries <= max_retries:
+                print(f"Export: Generating audio for sentence: {sentence} (Attempt {retries + 1})")
                 try:
-                    print(f"Export: Generating audio for sentence: {sentence} (Attempt {retries + 1})")
                     seg = self.generate_audio_segment(sentence)
+                except Exception
                     break
                 except Exception as e:
                     retries += 1
