@@ -74,10 +74,11 @@ class GroqHandler:
         self.client = None
         self.conversation_history = []  # List to store current conversation messages
         self.max_history_exchanges = max_history_exchanges
-        self._initialize_client()
+def initialize_client(self):
+    self._initialize_client()
 
-    def _initialize_client(self):
-        """Initializes the Groq client using the API key from environment variables."""
+def _initialize_client(self):
+    """Initializes the Groq client using the API key from environment variables."""
         try:
             # API key is automatically read from GROQ_API_KEY environment variable
             self.client = Groq()
