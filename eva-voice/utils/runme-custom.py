@@ -321,10 +321,11 @@ class TTS:
                     torch.arange(0, prompt_tokens.size(0))
                     .unsqueeze(0)
                     .long()
-                    .to(self.device)
-                )
-
-                max_audio_frames = int(max_audio_length_ms / 80)
+try:
+    audio_frames = torchaudio.compliance.kaldi.resample_waveform(
+        waveform, self.sample_rate, self.target_sample_rate)
+except Exception as e:
+    print(f"Error resampling waveform: {e}")
                 max_seq_len = 2048 - max_audio_frames
                 if curr_tokens.size(1) >= max_seq_len:
                     raise ValueError(f"Input too long ({curr_tokens.size(1)} tokens). Maximum is {max_seq_len} tokens.")
