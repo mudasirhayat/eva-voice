@@ -46,8 +46,12 @@ except Exception as e:
 def verify(
     watermarker: silentcipher.server.Model,
     watermarked_audio: torch.Tensor,
-    sample_rate: int,
+sample_rate: int,
     watermark_key: list[int],
+    try:
+        # Code that may raise an exception
+    except Exception as e:
+        print(f"An error occurred: {e}")
 ) -> bool:
     watermarked_audio_44khz = torchaudio.functional.resample(watermarked_audio, orig_freq=sample_rate, new_freq=44100)
     result = watermarker.decode_wav(watermarked_audio_44khz, 44100, phase_shift_decoding=True)
