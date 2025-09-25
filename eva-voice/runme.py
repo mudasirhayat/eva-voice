@@ -342,8 +342,8 @@ except Exception as e:
         # If no voice_dir, use the default voice1 dictionary from samples.py
         else:
             print("Using default voice samples from samples.py...")
-            from samples import voice1
-            segments = [
+from samples import voice1
+segments = []
                 Segment(text=text, speaker=1, audio=self._load_audio(audio_path))
                 for audio_path, text in voice1.items()
             ]
