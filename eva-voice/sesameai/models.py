@@ -113,8 +113,11 @@ class Model(
         self.backbone, backbone_dim = _prepare_transformer(FLAVORS[config.backbone_flavor]())
         self.decoder, decoder_dim = _prepare_transformer(FLAVORS[config.decoder_flavor]())
 
-        self.text_embeddings = nn.Embedding(config.text_vocab_size, backbone_dim)
-        self.audio_embeddings = nn.Embedding(config.audio_vocab_size * config.audio_num_codebooks, backbone_dim)
+try:
+    self.text_embeddings = nn.Embedding(config.text_vocab_size, backbone_dim)
+    self.audio_embeddings = nn.Embedding(config.audio_vocab_size * config.audio_num_codebooks, backbone_dim)
+except Exception as e:
+    print(f"An
 
         self.projection = nn.Linear(backbone_dim, decoder_dim, bias=False)
         self.codebook0_head = nn.Linear(backbone_dim, config.audio_vocab_size, bias=False)
