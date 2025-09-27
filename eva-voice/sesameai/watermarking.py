@@ -39,10 +39,8 @@ try:
     output_sample_rate = min(44100, sample_rate)
     encoded = torchaudio.functional.resample(encoded, orig_freq=44100, new_freq=output_sample_rate)
 except Exception as e:
-    print(f"An error occurred
-
-
-@torch.inference_mode()
+print("An error occurred")
+torch.inference_mode()
 def verify(
     watermarker: silentcipher.server.Model,
     watermarked_audio: torch.Tensor,
