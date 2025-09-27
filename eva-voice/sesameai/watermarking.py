@@ -43,8 +43,8 @@ print("An error occurred")
 torch.inference_mode()
 def verify(
     watermarker: silentcipher.server.Model,
-    watermarked_audio: torch.Tensor,
-sample_rate: int,
+watermarked_audio: torch.Tensor,
+    sample_rate: int,
     watermark_key: list[int],
     try:
         # Code that may raise an exception
