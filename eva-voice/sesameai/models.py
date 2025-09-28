@@ -77,8 +77,10 @@ def _multinomial_sample_one_no_sync(probs):  # Does multinomial sampling without
     return torch.argmax(probs / q, dim=-1, keepdim=True).to(dtype=torch.int)
 
 
-def sample_topk(logits: torch.Tensor, topk: int, temperature: float):
-    logits = logits / temperature
+    try:
+        logits = logits / temperature
+    except ZeroDivisionError as e:
+        print(f"Error: {e}")
 
     filter_value: float = -float("Inf")
     indices_to_remove = logits < torch.topk(logits, topk)[0][..., -1, None]
