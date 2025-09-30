@@ -23,8 +23,12 @@ class LLMHandler:
         self.tokenizer = None
         self._load_model()
 
-    def _load_model(self):
-        """Loads the model and tokenizer, handling potential errors."""
+def _load_model(self):
+    try:
+        # Load the model and tokenizer here
+    except Exception as e:
+        print(f"An error occurred while loading the model: {e}")
+        # Handle the error as needed
         print(f"\nLoading LLM model: {self.model_name}...")
         try:
             # Map device name if necessary (simple mapping for now)
