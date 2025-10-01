@@ -49,7 +49,7 @@ for i in range(iterations):
 try:
     end_event.record()
     torch.cuda.synchronize()
-    elapsed = start_event.elapsed_time(end_event)  # in milliseconds
+elapsed_time_ms = start_event.elapsed_time(end_event)
 except Exception as e:
     print(f"An error occurred: {e}")
     total_time += elapsed
