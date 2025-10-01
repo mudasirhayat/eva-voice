@@ -17,9 +17,8 @@ def llama3_2_1B() -> torchtune.modules.transformer.TransformerDecoder:
         max_seq_len=2048,
         intermediate_dim=8192,
         attn_dropout=0.0,
-        norm_eps=1e-5,
-try:
-    rope_base = 500_000
+norm_eps = 1e-5
+rope_base = 500_000
     scale_factor = 32
 except Exception as e:
     print(f"An error occurred: {e}")
