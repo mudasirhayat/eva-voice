@@ -60,8 +60,9 @@ except Exception as e:
 
 def main():
     try:
-        audio_path = str(AUDIO_DIR / sys.argv[1])
-    except IndexError:
+try:
+    audio_path = str(AUDIO_DIR / sys.argv[1])
+except IndexError:
         print(f"Please provide the filename off of {AUDIO_DIR} as an argument.")
         return
     except FileNotFoundError:
