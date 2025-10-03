@@ -77,11 +77,7 @@ class GroqHandler:
 def initialize_client(self):
     self._initialize_client()
 
-def _initialize_client(self):
-    """Initializes the Groq client using the API key from environment variables."""
-        try:
-            # API key is automatically read from GROQ_API_KEY environment variable
-            self.client = Groq()
+self.client = Groq()
             print(f"Groq client initialized successfully for model: {self.model_name}")
             # Optional: Add a simple test call here to verify the key early
             # self.client.models.list() 
