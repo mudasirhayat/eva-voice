@@ -124,9 +124,13 @@ async def get_api_key(key: str = Depends(api_key_header)):
             detail=f"Missing {API_KEY_NAME} header."
         )
     if key != API_KEY:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API Key."
+try:
+    # existing code
+except Exception as e:
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Invalid API Key."
+    )
         )
     return True
 
