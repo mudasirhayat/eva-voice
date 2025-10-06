@@ -394,11 +394,13 @@ async def generate_llm_stream(request: Request, payload: LLMRequest):
     if not request.app.state.tts or not request.app.state.llm:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="TTS or LLM service is not ready."
-        )
-
-    prompt = payload.prompt.strip()
-if not prompt:
+    try:
+        detail="TTS or LLM service is not ready."
+        prompt = payload.prompt.strip()
+        if not prompt:
+            raise ValueError("Prompt is empty.")
+    except Exception as e:
+        print(f"Error
     raise HTTPException(status_code=400, detail="Bad Request")
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Input prompt cannot be empty."
