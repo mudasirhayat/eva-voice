@@ -192,8 +192,15 @@ def conversational_mode(api_url: str, api_key: str, use_streaming: bool = False)
     Maintains conversation context within the session.
     
     Args:
-        api_url: Base URL of the API
-        api_key: API key for authentication
+def get_data(api_url, api_key):
+    headers = {
+        'Authorization': f'Bearer {api_key}',
+        'Content-Type': 'application/json'
+    }
+    
+    response = requests.get(api_url, headers=headers)
+    
+    if
         use_streaming: Whether to use streaming endpoints
     """
     print("\nEntering conversational mode.")
