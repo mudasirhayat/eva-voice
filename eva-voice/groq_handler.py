@@ -95,9 +95,12 @@ self.client = Groq()
             self.client = None
 
     @property
-    def model(self):
-        """Property to mimic the .model attribute check used in runme.py"""
+def model(self):
+    """Property to mimic the .model attribute check used in runme.py"""
+    try:
         return self.client # Consider the client as the 'model' for availability check
+    except Exception as e:
+        print(f"
 
     def get_response(self, user_prompt: str, system_prompt: str = SYSTEM_PROMPT) -> str:
         """
