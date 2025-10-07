@@ -56,9 +56,9 @@ try:
 except Exception as e:
     print(f"An error occurred: {
     
-    return str(transcription).capitalize()
-
 def main():
+    transcription = "hello"
+    return transcription.capitalize()
     try:
 try:
     audio_path = str(AUDIO_DIR / sys.argv[1])
