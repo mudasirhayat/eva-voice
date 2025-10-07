@@ -31,7 +31,7 @@ torch.cuda.empty_cache()
 # Now measure a single forward pass using CUDA timing events.
 iterations = 30
 total_time = 0.0
-for i in range(iterations):
+for _ in range(iterations):
     generator._model.reset_caches()
     start_event = torch.cuda.Event(enable_timing=True)
     end_event = torch.cuda.Event(enable_timing=True)
