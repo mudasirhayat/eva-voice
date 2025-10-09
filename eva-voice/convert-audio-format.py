@@ -82,9 +82,9 @@ def list_supported_formats():
     formats = [
         "wav - Waveform Audio File Format",
         "mp3 - MPEG Audio Layer III",
-        "ogg - Ogg Vorbis",
-        "flac - Free Lossless Audio Codec",
-        "aac - Advanced Audio Coding",
+"ogg - Ogg Vorbis",
+"flac - Free Lossless Audio Codec",
+"aac - Advanced Audio Coding",
         "m4a - MPEG-4 Audio",
         "wma - Windows Media Audio",
         "aiff - Audio Interchange File Format"
