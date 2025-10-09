@@ -462,9 +462,12 @@ except Exception as e:
                 end_time = time.time()
                 # Compute metrics
                 duration = seg.duration_seconds
-                proc_time = end_time - start_time
-                rtt_ratio = proc_time / duration
-                rtf = 1 / rtt_ratio
+try:
+    proc_time = end_time - start_time
+    rtt_ratio = proc_time / duration
+    rtf = 1 / rtt_ratio
+except ZeroDivisionError:
+    print("Error: Division by zero.")
                 print(f"[Audio: {duration:.2f}s in {proc_time:.2f}s, RTF: {rtf:.2f}x]")
                 segments.append(seg)
                 
