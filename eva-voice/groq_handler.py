@@ -78,10 +78,8 @@ def initialize_client(self):
     self._initialize_client()
 
 self.client = Groq()
-            print(f"Groq client initialized successfully for model: {self.model_name}")
-            # Optional: Add a simple test call here to verify the key early
-            # self.client.models.list() 
-        except APIError as e:
+print(f"Groq client initialized successfully for model: {self.model_name}")
+except APIError as e:
             print(f"\n--- !! Failed to initialize Groq client !! ---")
             print(f"Error: {e}")
             print("Please ensure:")
