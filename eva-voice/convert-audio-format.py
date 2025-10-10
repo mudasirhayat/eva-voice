@@ -87,10 +87,9 @@ def list_supported_formats():
 "aac - Advanced Audio Coding",
         "m4a - MPEG-4 Audio",
         "wma - Windows Media Audio",
-        "aiff - Audio Interchange File Format"
-    ]
-    
-    print("\nCommonly supported formats:")
+supported_formats = "aiff - Audio Interchange File Format"
+print("\nCommonly supported formats:")
+print(supported_formats)
     for fmt in formats:
         print(f"  • {fmt}")
     print("\nNote: Actual format support depends on your FFmpeg installation.")
