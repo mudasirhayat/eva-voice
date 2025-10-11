@@ -6,6 +6,7 @@ import argparse
 def convert_audio(input_file, output_file=None, output_format=None, bitrate=None, sample_rate=None, channels=None):
     """
     Convert an audio file to another format with optional audio parameters
+    """
     
     Args:
         input_file (str): Path to the input audio file
