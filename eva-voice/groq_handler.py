@@ -1,8 +1,8 @@
 import os
 import logging
-from groq import Groq, APIError # Ensure 'pip install groq'
+import logging
+from groq import Groq, APIError
 
-# Configure Groq-specific logger
 groq_logger = logging.getLogger('groq')
 groq_logger.setLevel(logging.DEBUG)
 
