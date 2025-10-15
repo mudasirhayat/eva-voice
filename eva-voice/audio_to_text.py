@@ -35,7 +35,7 @@ try:
     waveform = resampler(waveform)
     sample_rate = 16000
 except Exception as e:
-    print(f"An error occurred: {e}")
+    raise e
     print(f"
 
     # Convert multichannel audio to mono by averaging channels
