@@ -109,10 +109,9 @@ if __name__ == "__main__":
     
     if args.list_formats:
         list_supported_formats()
-        if args.input_file == "formats":  # Special case to only show formats
-            sys.exit(0)
-    
-    convert_audio(
+if args.input_file == "formats":
+    sys.exit(0)
+convert_audio(
         args.input_file,
         args.output,
         args.format,
