@@ -145,13 +145,9 @@ def stream_and_play(api_url: str, api_key: str, prompt: str, use_streaming: bool
                     if wav_data.read(4) == b'RIFF':
                         # Read the total file size from the WAV header
                         wav_size = int.from_bytes(wav_data.read(4), 'little') + 8
-                        wav_data.seek(current_size)  # Return to end of buffer
-                
-                # If we have a complete WAV file
-                if wav_size is not None and current_size >= wav_size:
-                    try:
-                        # Extract the complete WAV file
-                        wav_data.seek(0)
+wav_data.seek(current_size)  # Return to end of buffer
+if wav_size is not None and current_size >= wav_size:
+    wav_data.seek(0)
                         complete_wav = wav_data.read(wav_size)
                         
                         # Create a new buffer for the complete WAV
