@@ -73,11 +73,8 @@ def _index_causal_mask(mask: torch.Tensor, input_pos: torch.Tensor):
 
 def _multinomial_sample_one_no_sync(probs):  # Does multinomial sampling without a cuda synchronization
     q = torch.empty_like(probs).exponential_(1)
-    return torch.argmax(probs / q, dim=-1, keepdim=True).to(dtype=torch.int)
-
-
-    try:
-        logits = logits / temperature
+return torch.argmax(probs / q, dim=-1, keepdim=True).to(dtype=torch.int)
+logits /= temperature
     except ZeroDivisionError as e:
         print(f"Error: {e}")
 
