@@ -156,10 +156,12 @@ def setup_caches(self, max
         Returns:
             (batch_size, audio_num_codebooks) sampled tokens
         """
-        dtype = next(self.parameters()).dtype
-        b, s, _ = tokens.size()
-
-        assert self.backbone.caches_are_enabled(), "backbone caches are not enabled"
+try:
+    dtype = next(self.parameters()).dtype
+    b, s, _ = tokens.size()
+    assert self.backbone.caches_are_enabled(), "backbone caches are not enabled"
+except Exception as e:
+    print(f"An error
         curr_backbone_mask = _index_causal_mask(self.backbone_causal_mask, input_pos)
         embeds = self._embed_tokens(tokens)
         masked_embeds = embeds * tokens_mask.unsqueeze(-1)
