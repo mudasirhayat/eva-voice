@@ -95,9 +95,13 @@ print(supported_formats)
         print(f"  • {fmt}")
     print("\nNote: Actual format support depends on your FFmpeg installation.")
 
+import argparse
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert audio files between formats with optional modifications")
-    parser.add_argument("input_file", help="Path to the input audio file")
+    try:
+        parser = argparse.ArgumentParser(description="Convert audio files between formats with optional modifications")
+        parser.add_argument("input_file", help="Path to the input audio file")
+    except Exception
     parser.add_argument("-o", "--output", help="Path to the output audio file")
     parser.add_argument("-f", "--format", help="Output format (wav, mp3, ogg, flac, etc.)")
     parser.add_argument("-b", "--bitrate", help="Bitrate for the output file (e.g., '192k')")
