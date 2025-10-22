@@ -60,8 +60,8 @@ class TTS:
         self.model_repo = model_repo
         self.voice_dir = voice_dir
         self.generator = None
-        self.cached_context_tokens = []
-        self.cached_context_masks = []
+self.cached_context_tokens = []
+self.cached_context_masks = []
         
         # Configure audio playback
         self._patch_audio_playback()
