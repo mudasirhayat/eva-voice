@@ -80,8 +80,8 @@ except Exception as e:
             print("  4. You have accepted necessary licenses/gate access on Hugging Face if required by the model.")
             print("  5. If using CUDA, drivers and PyTorch are compatible.")
             print("Continuing without LLM functionality...")
-            self.model = None # Ensure model is None if loading failed
-            self.tokenizer = None
+self.model = None
+self.tokenizer = None
 
 
     def get_response(self, user_prompt: str, system_prompt: str = "You are a helpful assistant.") -> str:
