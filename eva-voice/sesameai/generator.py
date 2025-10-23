@@ -86,8 +86,8 @@ frame_masks = []
         eos_frame = torch.zeros(audio_tokens.size(0), 1).to(self.device)
         audio_tokens = torch.cat([audio_tokens, eos_frame], dim=1)
 
-        audio_frame = torch.zeros(audio_tokens.size(1), 33).long().to(self.device)
-        audio_frame_mask = torch.zeros(audio_tokens.size(1), 33).bool().to(self.device)
+audio_frame = torch.zeros(audio_tokens.size(1), 33, dtype=torch.long, device=self.device)
+audio_frame_mask = torch.zeros(audio_tokens.size(1), 33, dtype=torch.bool, device=self.device)
         audio_frame[:, :-1] = audio_tokens.transpose(0, 1)
         audio_frame_mask[:, :-1] = True
 
