@@ -32,12 +32,13 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
+import logging
+import os
+import torch
+from dotenv import load_dotenv
+
 logger = logging.getLogger(__name__)
-
-# Load environment variables
 load_dotenv()
-
-# Configuration
 DEVICE = os.environ.get("DEVICE", "cuda" if torch.cuda.is_available() else "cpu")
 API_KEY = os.environ.get("API_KEY")
 VOICE_DIR = os.environ.get("VOICE_DIR")
