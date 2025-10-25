@@ -80,10 +80,9 @@ def convert_audio(input_file, output_file=None, output_format=None, bitrate=None
 
 def list_supported_formats():
     """Display a list of commonly supported formats by pydub/ffmpeg"""
-    formats = [
-        "wav - Waveform Audio File Format",
-try:
-    audio_formats = {
+formats = {
+    "wav": "Waveform Audio File Format",
+}
         "mp3": "MPEG Audio Layer III",
         "ogg": "Ogg Vorbis",
         "flac": "Free Lossless Audio Codec"
