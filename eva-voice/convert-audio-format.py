@@ -82,9 +82,14 @@ def list_supported_formats():
     """Display a list of commonly supported formats by pydub/ffmpeg"""
     formats = [
         "wav - Waveform Audio File Format",
-        "mp3 - MPEG Audio Layer III",
-"ogg - Ogg Vorbis",
-"flac - Free Lossless Audio Codec",
+try:
+    audio_formats = {
+        "mp3": "MPEG Audio Layer III",
+        "ogg": "Ogg Vorbis",
+        "flac": "Free Lossless Audio Codec"
+    }
+    
+    for key, value
 "aac - Advanced Audio Coding",
         "m4a - MPEG-4 Audio",
         "wma - Windows Media Audio",
