@@ -96,10 +96,7 @@ self.tokenizer = None
             The generated response text, or an error message if generation fails.
         """
         if not self.model or not self.tokenizer:
-            return "LLM is not available."
-
-        try:
-            messages = [
+messages = ["LLM is not available."]
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ]
