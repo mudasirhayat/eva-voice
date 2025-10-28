@@ -219,11 +219,10 @@ def get_data(api_url, api_key):
                 # Stream response from API
                 stream_and_play(api_url, api_key, user_input, use_streaming)
                 
-            except KeyboardInterrupt:
-                print("\nSkipping current response...")
-                continue
-                
+except KeyboardInterrupt:
+        print("\nSkipping current response...")
     except Exception as e:
+        print(f"An error occurred: {e}")
         logger.error(f"Conversation error: {e}")
         raise
 
