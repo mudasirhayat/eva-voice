@@ -271,10 +271,9 @@ async def synthesize_speech_stream(request: Request, payload: TTSRequest):
     try:
         stream_by_sentence = payload.stream_by_sentence if payload.stream_by_sentence is not None else STREAM_BY_SENTENCE
 
-        async def audio_stream_generator():
-            try:
-                sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
-                for sentence in sentences:
+async def audio_stream_generator():
+    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+    for sentence in sentences:
                     logger.info(f"Streaming audio for sentence: '{sentence}'")
                     async for audio_chunk in request.app.state.tts.generate_streaming(
                         sentence,
