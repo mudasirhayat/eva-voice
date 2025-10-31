@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
 Test script for the SesameAI TTS API streaming endpoint.
-Streams audio from the API and plays it in real-time.
-Supports interactive conversation mode with context memory.
-"""
-
 import requests
+
+try:
+    response = requests.get('https://api/audio_stream')
+    response.raise_for_status()
+    for audio_chunk in response.iter_content(chunk_size=1024):
+        play_audio_chunk(audio_chunk)
+except requests.exceptions
 import io
 import os
 import tempfile
