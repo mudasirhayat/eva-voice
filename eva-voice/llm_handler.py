@@ -138,11 +138,12 @@ except Exception as e:
             # The generated_ids contain the input prompt tokens + the new tokens
             input_token_len = model_inputs.input_ids.shape[1]
             # Slice the generated_ids to get only the new tokens
-            new_tokens = generated_ids[0, input_token_len:]
-
-            response = self.tokenizer.decode(new_tokens, skip_special_tokens=True)
-
-            return response.strip()
+try:
+    new_tokens = generated_ids[0, input_token_len:]
+    response = self.tokenizer.decode(new_tokens, skip_special_tokens=True)
+    return response.strip()
+except Exception as e:
+    print(f"An error occurred: {e
 
         except Exception as e:
             logger.error(f"Error during LLM generation: {e}")
