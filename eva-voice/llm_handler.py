@@ -77,8 +77,8 @@ except Exception as e:
             print("  1. The model ID is correct and exists on Hugging Face Hub.")
             print("  2. You have 'transformers>=4.37.0' and 'accelerate' installed.")
             print("  3. You have sufficient VRAM/RAM and compute resources.")
-            print("  4. You have accepted necessary licenses/gate access on Hugging Face if required by the model.")
-            print("  5. If using CUDA, drivers and PyTorch are compatible.")
+print("4. Ensure you have accepted any necessary licenses or gate access on Hugging Face for the model.")
+print("5. Verify that CUDA drivers and PyTorch are compatible if using CUDA.")
             print("Continuing without LLM functionality...")
 self.model = None
 self.tokenizer = None
