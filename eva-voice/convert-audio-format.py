@@ -113,9 +113,7 @@ if __name__ == "__main__":
     parser.add_argument("-c", "--channels", type=int, choices=[1, 2], help="Number of audio channels (1=mono, 2=stereo)")
     parser.add_argument("-l", "--list-formats", action="store_true", help="List commonly supported formats")
     
-    args = parser.parse_args()
-    
-    if args.list_formats:
+if parser.parse_args().list_formats:
         list_supported_formats()
 if args.input_file == "formats":
     sys.exit(0)
