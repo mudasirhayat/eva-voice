@@ -1,4 +1,5 @@
-import torch, time
+import torch
+import time
 from generator import load_csm_1b
 from huggingface_hub import hf_hub_download
 import warnings
