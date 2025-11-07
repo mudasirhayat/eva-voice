@@ -521,10 +521,11 @@ except ZeroDivisionError:
 
             retries = 0
             seg = None
-            while retries <= max_retries:
-                print(f"Export: Generating audio for sentence: {sentence} (Attempt {retries + 1})")
-                try:
-                    seg = self.generate_audio_segment(sentence)
+while retries <= max_retries:
+    try:
+        print(f"Export: Generating audio for sentence: {sentence} (Attempt {retries + 1})")
+        seg = self.generate_audio_segment(sentence)
+    except Exception as
                 except Exception
                     break
                 except Exception as e:
