@@ -129,17 +129,12 @@ try:
     do_sample=True,
 except Exception as e:
     print(f"An error occurred: {e}")
-                temperature=0.7,
-                top_k=50,
-                top_p=0.95
-            )
-
-            # Decode only the newly generated tokens
-            # The generated_ids contain the input prompt tokens + the new tokens
-            input_token_len = model_inputs.input_ids.shape[1]
-            # Slice the generated_ids to get only the new tokens
 try:
+    temperature = 0.7
+    input_token_len = model_inputs.input_ids.shape[1]
     new_tokens = generated_ids[0, input_token_len:]
+except Exception as e:
+    print(f"An error occurred: {
     response = self.tokenizer.decode(new_tokens, skip_special_tokens=True)
     return response.strip()
 except Exception as e:
