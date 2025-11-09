@@ -453,9 +453,7 @@ except Exception as e:
                 print(f"> {sentence} ... ", end='', flush=True)
                 
                 # Generate audio segment
-                seg = self.generate_audio_segment(
-                    sentence, 
-                    fade_duration=fade_duration, 
+seg = self.generate_audio_segment(fade_duration=fade_duration)
                     start_silence_duration=start_silence_duration, 
                     end_silence_duration=end_silence_duration
                 )
