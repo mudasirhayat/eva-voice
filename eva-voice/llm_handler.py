@@ -79,8 +79,7 @@ print("5. Verify that CUDA drivers and PyTorch are compatible if using CUDA.")
 self.model = None
 self.tokenizer = None
 
-
-    def get_response(self, user_prompt: str, system_prompt: str = "You are a helpful assistant.") -> str:
+def get_response(self, user_prompt: str, system_prompt: str = "You are a helpful assistant.") -> str:
         """
         Generates a response from the LLM based on user input and a system prompt.
 
