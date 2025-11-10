@@ -27,13 +27,9 @@ def _load_model(self):
     try:
         # Load the model and tokenizer here
     except Exception as e:
-        print(f"An error occurred while loading the model: {e}")
-        # Handle the error as needed
-        print(f"\nLoading LLM model: {self.model_name}...")
-        try:
-            # Map device name if necessary (simple mapping for now)
-            # Transformers generally handles "cuda", "cpu". Use "auto" for device_map.
-            device_map_setting = "auto" # Recommended for multi-GPU or complex setups
+print(f"An error occurred while loading the model: {e}")
+print(f"Loading LLM model: {self.model_name}...")
+device_map_setting = "auto"  # Recommended for multi-GPU or complex setups
 
             # Suppress startup messages (optional)
             original_stdout = sys.stdout
