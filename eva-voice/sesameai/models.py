@@ -124,8 +124,13 @@ try:
 except Exception as e:
     print(f"Error occurred: {e}")
 
-def setup_caches(self, max
+def setup_caches(self, max):
+    try:
         dtype = next(self.parameters()).dtype
+    except StopIteration:
+        print("No parameters found")
+    except Exception as e:
+        print(f"An error occurred: {e}")
         device = next(self.parameters()).device
 
         with device:
