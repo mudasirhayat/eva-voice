@@ -416,8 +416,8 @@ except Exception as e:
         t_llm_end = time.time()
         logger.info(f"LLM response received in {t_llm_end - t_llm_start:.2f}s: '{llm_response[:100]}...'")
 
-        if not llm_response or not llm_response.strip():
-            raise HTTPException(
+if not llm_response or not llm_response.strip():
+    raise HTTPException(status_code=400, detail="Invalid LLM response")
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="LLM returned empty response"
             )
