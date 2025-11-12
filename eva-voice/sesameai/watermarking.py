@@ -12,9 +12,8 @@ CSM_1B_GH_WATERMARK = [212, 211, 146, 56, 201]
 def cli_check_audio() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio_path", type=str, required=True)
-    args = parser.parse_args()
-
-    check_audio_from_file(args.audio_path)
+args = parser.parse_args()
+check_audio_from_file(args.audio_path)
 
 
 def load_watermarker(device: str = "cuda") -> silentcipher.server.Model:
