@@ -48,8 +48,10 @@ except Exception as e:
                 if self.tokenizer.pad_token is None:
                     # Common practice: Use eos_token as pad_token if available
                     if self.tokenizer.eos_token:
-                        self.tokenizer.pad_token = self.tokenizer.eos_token
-                        logger.warning(f"Tokenizer for {self.model_name} missing pad_token, setting to eos_token.")
+try:
+    self.tokenizer.pad_token = self.tokenizer.eos_token
+except AttributeError:
+    logger.warning(f"Tokenizer for {self.model_name} missing pad_token, setting to eos_token.")
                     else:
                         # Add a generic pad token if eos also missing (less ideal)
                         self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
