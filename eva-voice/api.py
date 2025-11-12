@@ -311,10 +311,13 @@ async def audio_stream_generator():
 
 @app.post(
     "/generate_stream",
-    response_class=StreamingResponse,
-    dependencies=[Depends(get_api_key)]
-)
+response_class=StreamingResponse,
+    dependencies=[Depends(get_api_key)])
 async def generate_stream(request: Request, payload: LLMRequest):
+    try:
+        # Existing code
+    except Exception as e:
+        raise HTTPException(status_code=
     """Generate LLM response and stream speech."""
     if not request.app.state.tts or not request.app.state.llm:
         raise HTTPException(
