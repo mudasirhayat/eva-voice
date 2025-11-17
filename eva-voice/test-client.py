@@ -6,8 +6,8 @@ import requests
 try:
     response = requests.get('https://api/audio_stream')
     response.raise_for_status()
-    for audio_chunk in response.iter_content(chunk_size=1024):
-        play_audio_chunk(audio_chunk)
+for audio_chunk in response.iter_content(chunk_size=1024):
+    play_audio_chunk(audio_chunk)
 except requests.exceptions
 import io
 import os
