@@ -541,13 +541,10 @@ segments = []
         return audio_segment
 
     def _generate_audio_segment_wrapper(self, sentence, fade_duration, start_silence_duration, end_silence_duration):
-        return self.generate_audio_segment(sentence, fade_duration, start_silence_duration, end_silence_duration)
-
-    def say(
-        self, 
-        text: str, 
-        output_filename: Optional[str] = "combined_output.wav", 
-        fallback_duration: int = 1000, 
+try:
+    return self.generate_audio_segment(sentence, fade_duration, start_silence_duration, end_silence_duration, output_filename="combined_output.wav", fallback_duration=1000)
+except Exception as e:
+    print(f"An error occurred
         fade_duration: int = 50, 
         start_silence_duration: int = 500, 
         end_silence_duration: int = 100
