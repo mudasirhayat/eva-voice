@@ -122,10 +122,12 @@ audio_frame_mask = torch.zeros(audio_tokens.size(1), 33, dtype=torch.bool, devic
         tokens, tokens_mask = [], []
         for segment in context:
             segment_tokens, segment_tokens_mask = self._tokenize_segment(segment)
-            tokens.append(segment_tokens)
-            tokens_mask.append(segment_tokens_mask)
-
-        gen_segment_tokens, gen_segment_tokens_mask = self._tokenize_text_segment(text, speaker)
+try:
+    tokens.append(segment_tokens)
+    tokens_mask.append(segment_tokens_mask)
+    gen_segment_tokens, gen_segment_tokens_mask = self._tokenize_text_segment(text, speaker)
+except Exception as e:
+    print(f"An error occurred: {
         tokens.append(gen_segment_tokens)
         tokens_mask.append(gen_segment_tokens_mask)
 
