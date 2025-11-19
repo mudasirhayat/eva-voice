@@ -21,10 +21,8 @@ class Segment:
 
 def load_llama3_tokenizer():
     """
-    https://github.com/huggingface/transformers/issues/22794#issuecomment-2092623992
-    """
-    tokenizer_name = "meta-llama/Llama-3.2-1B"
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+tokenizer_name = "meta-llama/Llama-3.2-1B"
+tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 try:
     bos = tokenizer.bos_token
     eos = tokenizer.eos_token
