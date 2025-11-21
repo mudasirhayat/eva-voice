@@ -49,8 +49,11 @@ for _ in range(iterations):
                     topk=50,
                 )
 try:
+try:
     end_event.record()
     torch.cuda.synchronize()
+except Exception as e:
+    print(f"An error occurred: {e}")
 elapsed_time_ms = start_event.elapsed_time(end_event)
 except Exception as e:
     print(f"An error occurred: {e}")
