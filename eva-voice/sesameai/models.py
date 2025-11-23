@@ -62,12 +62,7 @@ def _index_causal_mask(mask: torch.Tensor, input_pos: torch.Tensor):
     """
     Args:
         mask: (max_seq_len, max_seq_len)
-        input_pos: (batch_size, seq_len)
-
-    Returns:
-        (batch_size, seq_len, max_seq_len)
-    """
-    r = mask[input_pos, :]
+r = mask[input_pos, :]
     return r
 
 
