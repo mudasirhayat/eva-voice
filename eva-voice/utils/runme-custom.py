@@ -14,6 +14,11 @@ import tempfile
 import textwrap
 import time
 import warnings
+
+try:
+    # Add your code here
+except Exception as e:
+    print(f"An error occurred: {e}")
 import torch
 import torchaudio
 from pathlib import Path
