@@ -12,8 +12,12 @@ def convert_audio(input_file, output_file=None, output_format=None, bitrate=None
         input_file (str): Path to the input audio file
         output_file (str, optional): Path to the output audio file
         output_format (str, optional): Format for the output file (wav, mp3, ogg, flac, etc.)
-        bitrate (str, optional): Bitrate for the output file (e.g., "192k")
-        sample_rate (int, optional): Sample rate for the output file (e.g., 44100)
+def convert_audio(input_file, output_file, bitrate=None, sample_rate=None):
+    try:
+        # Code for converting audio
+        pass
+    except Exception as e:
+        print(f"An error occurred: {e}")
         channels (int, optional): Number of audio channels (1 for mono, 2 for stereo)
     
     Returns:
