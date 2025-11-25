@@ -182,8 +182,8 @@ self.decoder.reset_caches()
             ci_sample = sample_topk(ci_logits, topk, temperature)
             ci_embed = self._embed_audio(i, ci_sample)
 
-            curr_h = ci_embed
-            curr_sample = torch.cat([curr_sample, ci_sample], dim=1)
+curr_h = ci_embed
+curr_sample = torch.cat([curr_sample, ci_sample], dim=1)
             curr_pos = curr_pos[:, -1:] + 1
 
         return curr_sample
