@@ -172,12 +172,10 @@ self.cached_context_masks = []
         segments_to_process: List[Dict[str, Any]] = []
         generated_metadata = []
         
-        for audio_path in audio_files:
-            print(f"Processing: {audio_path.name} ...", end=" ", flush=True)
-            try:
-                # 1. Transcribe
-                # Handle transcription options if needed (e.g., language detection)
-                result = asr_model.transcribe(str(audio_path), fp16=torch.cuda.is_available() and whisper_device=="cuda")
+for audio_path in audio_files:
+    try:
+        print(f"Processing: {audio_path.name} ...", end=" ", flush=True)
+        result = asr_model.transcribe(str(audio_path), fp16=torch.cuda.is_available
                 transcript = result["text"].strip()
                 print(f"Transcript: '{transcript[:50]}...'", end=" ", flush=True)
                 if not transcript:
