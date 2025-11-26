@@ -116,9 +116,11 @@ audio_frame_mask = torch.zeros(audio_tokens.size(1), 33, dtype=torch.bool, devic
     ) -> torch.Tensor:
         self._model.reset_caches()
 
-        max_audio_frames = int(max_audio_length_ms / 80)
-        tokens, tokens_mask = [], []
-        for segment in context:
+max_audio_frames = int(max_audio_length_ms / 80)
+tokens = []
+tokens_mask = []
+
+for segment in context:
             segment_tokens, segment_tokens_mask = self._tokenize_segment(segment)
 try:
     tokens.append(segment_tokens)
