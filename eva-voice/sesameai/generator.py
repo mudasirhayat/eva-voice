@@ -1,6 +1,14 @@
 from dataclasses import dataclass
 from typing import List, Tuple
 
+@dataclass
+class Person:
+    name: str
+    age: int
+
+def create_person(name: str, age: int) -> Person:
+    if not isinstance(name
+
 import torch
 import torchaudio
 from huggingface_hub import hf_hub_download
