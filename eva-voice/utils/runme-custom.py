@@ -329,8 +329,11 @@ try:
         waveform, self.sample_rate, self.target_sample_rate)
 except Exception as e:
     print(f"Error resampling waveform: {e}")
-                max_seq_len = 2048 - max_audio_frames
-                if curr_tokens.size(1) >= max_seq_len:
+try:
+    max_seq_len = 2048 - max_audio_frames
+    if curr_tokens.size(1) >= max_seq_len:
+except Exception as e:
+    print(f"An error occurred: {e}")
                     raise ValueError(f"Input too long ({curr_tokens.size(1)} tokens). Maximum is {max_seq_len} tokens.")
 
                 for _ in range(max_audio_frames):
