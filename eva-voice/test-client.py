@@ -101,11 +101,12 @@ def patch_audio_playback():
 
 def stream_and_play(api_url: str, api_key: str, prompt: str, use_streaming: bool = False):
     """
-    Stream audio from the API and play it in real-time.
-    
-    Args:
-        api_url: Base URL of the API
-        api_key: API key for authentication
+import requests
+import pyaudio
+
+def stream_audio(api_url, api_key):
+    headers = {'Authorization': f'Bearer {api_key}'}
+    with requests.get(api_url, headers=headers, stream=True) as response:
         prompt: Text prompt to send to the API
         use_streaming: Whether to use streaming endpoints
     """
