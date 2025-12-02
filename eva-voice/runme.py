@@ -806,9 +806,8 @@ except Exception as e:
                         self.generator._watermarker,
                         audio_chunk,
                         self.generator.sample_rate,
-                        CSM_1B_GH_WATERMARK
-                    )
-                    if wm_sample_rate != self.generator.sample_rate:
+if wm_sample_rate != self.generator.sample_rate:
+    CSM_1B_GH_WATERMARK
                         audio_chunk = torchaudio.functional.resample(
                             audio_chunk,
                             orig_freq=wm_sample_rate,
