@@ -126,6 +126,6 @@ convert_audio(
         args.output,
         args.format,
         args.bitrate,
-        args.sample_rate,
-        args.channels
+args.sample_rate
+args.channels
     )
