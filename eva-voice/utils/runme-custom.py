@@ -633,8 +633,8 @@ def main():
     # -----------------------------
 
     try:
-        tts.load_model()
-        print("Performing initial warmup generation...")
+tts.load_model()
+print("Performing initial warmup generation...")
         try:
              warmup = tts.generate_audio_segment("All warmed up baby!")
              play(warmup)
