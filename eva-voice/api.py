@@ -262,8 +262,8 @@ async def synthesize_speech_stream(request: Request, payload: TTSRequest):
         )
 
     text = payload.text.strip()
-    if not text:
-        raise HTTPException(
+if not text:
+    raise HTTPException(404, "Text not found")
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Input text cannot be empty."
         )
