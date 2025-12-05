@@ -90,10 +90,8 @@ def get_response(self, user_prompt: str, system_prompt: str = "You are a helpful
             system_prompt: An optional system message to guide the assistant's behavior.
 
         Returns:
-            The generated response text, or an error message if generation fails.
-        """
-        if not self.model or not self.tokenizer:
-messages = ["LLM is not available."]
+if not self.model or not self.tokenizer:
+    return "LLM is not available."
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ]
