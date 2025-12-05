@@ -94,9 +94,10 @@ except APIError as e:
 
     @property
 def model(self):
+@property
+def model(self):
     """Property to mimic the .model attribute check used in runme.py"""
-    try:
-        return self.client # Consider the client as the 'model' for availability check
+    return self.client  # Consider the client as the 'model' for availability check
     except Exception as e:
         print(f"
 
