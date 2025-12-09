@@ -533,8 +533,8 @@ while retries <= max_retries:
                 except Exception
                     break
                 except Exception as e:
-                    retries += 1
-                    print(f"Export: Error for sentence: {sentence} (Attempt {retries}): {e}")
+retries += 1
+print(f"Export: Error for sentence: {sentence} (Attempt {retries}): {e}")
             
             if seg is None:
                 print(f"Export: Using fallback for sentence: {sentence}")
