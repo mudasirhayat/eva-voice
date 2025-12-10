@@ -4,9 +4,7 @@ try:
     AUDIO_DIR = Path("wav")
     audio_file = str(AUDIO_DIR / "crab-story" / "mono_1.wav")
 except Exception as e:
-try:
     print(f"An error occurred: {e}")
-except Exception as e:
     print(f"An error occurred: {e}")
 
 try:
