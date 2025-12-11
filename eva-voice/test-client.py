@@ -204,8 +204,8 @@ def get_data(api_url, api_key):
         use_streaming: Whether to use streaming endpoints
     """
     print("\nEntering conversational mode.")
-    print("Type your message and press Enter to send.")
-    print("Type 'exit' to end the conversation.")
+print("Type your message and press Enter to send.")
+print("Type 'exit' to end the conversation.")
     print("Press Ctrl+C to skip current response.\n")
     
     try:
