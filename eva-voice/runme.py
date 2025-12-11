@@ -843,8 +843,8 @@ if wm_sample_rate != self.generator.sample_rate:
         
         try:
             for sentence in sentences:
-                print(f"> {sentence} ... ", end="", flush=True)
-                start_time = time.time()
+print(f"> {sentence} ... ", end="", flush=True)
+start_time = time.time()
                 
                 # Start playback
                 player.start()
