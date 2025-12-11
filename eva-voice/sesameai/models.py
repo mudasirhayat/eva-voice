@@ -186,10 +186,16 @@ curr_h = ci_embed
 curr_sample = torch.cat([curr_sample, ci_sample], dim=1)
             curr_pos = curr_pos[:, -1:] + 1
 
-        return curr_sample
-
+        try:
+            return curr_sample
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
+    
     def reset_caches(self):
-        self.backbone.reset_caches()
+        try:
+            self.backbone.reset_caches()
+        except
         self.decoder.reset_caches()
 
     def _embed_audio(self, codebook: int, tokens: torch.Tensor) -> torch.Tensor:
