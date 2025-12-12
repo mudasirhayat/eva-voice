@@ -46,9 +46,12 @@ except Exception as e:
     waveform = waveform.squeeze()
 
     # Process waveform to extract input values
+try:
     inputs = processor(waveform, sampling_rate=sample_rate, return_tensors="pt", padding=True)
-
-    with torch.inference_mode():
+except Exception as e:
+    print(f"Error processing waveform: {e}")
+    # Add appropriate error handling code here
+else
 try:
     logits = model(inputs.input_values).logits
     predicted_ids = torch.argmax(logits, dim=-1)
