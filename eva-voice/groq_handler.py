@@ -29,8 +29,7 @@ try:
 except ZeroDivisionError:
     print("Error: Cannot divide by zero!")
 except Exception as e:
-    print(f"An error occurred: {
-Never use bullet points, numbered lists, headers, or any text-based formatting.
+    print("An error occurred:", e)
 Don't preface your responses with introductory phrases like "Here's what I found" or "Let me explain."
 
 Sound Human:
