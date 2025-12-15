@@ -19,6 +19,7 @@ def llama3_2_1B() -> torchtune.modules.transformer.TransformerDecoder:
         attn_dropout=0.0,
 norm_eps = 1e-5
 rope_base = 500_000
+try:
     scale_factor = 32
 except Exception as e:
     print(f"An error occurred: {e}")
