@@ -27,9 +27,11 @@ def _load_model(self):
     try:
         # Load the model and tokenizer here
     except Exception as e:
-print(f"An error occurred while loading the model: {e}")
-print(f"Loading LLM model: {self.model_name}...")
-device_map_setting = "auto"  # Recommended for multi-GPU or complex setups
+try:
+    print(f"Loading LLM model: {self.model_name}...")
+    device_map_setting = "auto"  # Recommended for multi-GPU or complex setups
+except Exception as e:
+    print(f"An error occurred while loading
 
             # Suppress startup messages (optional)
             original_stdout = sys.stdout
