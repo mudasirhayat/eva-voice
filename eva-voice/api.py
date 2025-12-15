@@ -345,8 +345,8 @@ async def generate_stream(request: Request, payload: LLMRequest):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="LLM returned empty response"
             )
-    except Exception as e:
-        logger.exception(f"Error getting LLM response: {e}")
+except Exception as e:
+    logger.exception("Error getting LLM response: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to get LLM response: {e}"
