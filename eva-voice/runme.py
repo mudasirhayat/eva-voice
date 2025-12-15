@@ -405,10 +405,12 @@ segments = []
         Returns:
             Audio tensor
         """
-        self.generator._model.reset_caches()
-        with torch.inference_mode():
-            # Use mixed precision throughout the generation process
-            with torch.autocast(self.device, dtype=torch.bfloat16):
+try:
+    self.generator._model.reset_caches()
+    with torch.inference_mode():
+        with torch.autocast(self.device, dtype=torch.bfloat16):
+except Exception as e:
+    print(f"An error occurred: {
                 # Tokenize the new prompt
                 gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
                 # Combine cached tokens with new prompt tokens
