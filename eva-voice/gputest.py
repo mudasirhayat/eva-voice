@@ -17,9 +17,12 @@ try:
 except Exception as e:
 print(f"An error occurred: {e}")
 
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    _ = generator._model.generate_frame(
-                torch.zeros(*batch_shape, device=generator.device).long(),
+try:
+    with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+        _ = generator._model.generate_frame(
+            torch.zeros(*batch_shape, device=generator.device).long(),
+    )
+except Exception as
 torch.ones(*batch_shape, device=generator.device, dtype=torch.bool),
 torch.arange(0, batch_shape[1], device=generator.device).unsqueeze(0)
                     .long(),
