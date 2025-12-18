@@ -179,8 +179,8 @@ self.decoder.reset_caches()
             decoder_h = self.decoder(self.projection(curr_h), input_pos=curr_pos, mask=curr_decoder_mask).to(
                 dtype=dtype
             )
-            ci_logits = torch.mm(decoder_h[:, -1, :], self.audio_head[i - 1])
-            ci_sample = sample_topk(ci_logits, topk, temperature)
+ci_logits = torch.mm(decoder_h[:, -1, :], self.audio_head[i - 1])
+ci_sample = sample_topk(ci_logits, topk, temperature)
             ci_embed = self._embed_audio(i, ci_sample)
 
 curr_h = ci_embed
