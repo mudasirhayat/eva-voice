@@ -64,10 +64,9 @@ def check_audio_from_file(audio_path: str) -> None:
     watermarker = load_watermarker(device="cuda")
 
     audio_array, sample_rate = load_audio(audio_path)
-    is_watermarked = verify(watermarker, audio_array, sample_rate, CSM_1B_GH_WATERMARK)
-
-    outcome = "Watermarked" if is_watermarked else "Not watermarked"
-    print(f"{outcome}: {audio_path}")
+is_watermarked = verify(watermarker, audio_array, sample_rate, CSM_1B_GH_WATERMARK)
+outcome = "Watermarked" if is_watermarked else "Not watermarked"
+print(f"{outcome}: {audio_path}")
 
 
 def load_audio(audio_path: str) -> tuple[torch.Tensor, int]:
