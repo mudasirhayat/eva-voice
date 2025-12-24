@@ -251,9 +251,11 @@ def main():
         "--interactive",
         "-i",
         action="store_true",
-        help="Run in interactive conversation mode"
-    )
+try:
+    help="Run in interactive conversation mode"
     parser.add_argument(
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
         "--streaming",
         "-s",
         action="store_true",
