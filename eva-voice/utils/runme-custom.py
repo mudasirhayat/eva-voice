@@ -222,10 +222,14 @@ for audio_path in audio_files:
         try:
             cache_data = {
                 'tokens': self.cached_context_tokens,
-                'masks': self.cached_context_masks
-            }
-            torch.save(cache_data, cache_path)
-            print("Context cache saved successfully.")
+try:
+    cache_data = {
+        'context': self.cached_context,
+        'masks': self.cached_context_masks
+    }
+    torch.save(cache_data, cache_path)
+    print("Context cache saved successfully.")
+except Exception as e
             
             # Also save the generated metadata for user reference
             try:
