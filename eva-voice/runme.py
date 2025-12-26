@@ -546,8 +546,8 @@ except Exception as e:
 try:
     return self.generate_audio_segment(sentence, fade_duration, start_silence_duration, end_silence_duration, output_filename="combined_output.wav", fallback_duration=1000)
 except Exception as e:
-    print(f"An error occurred
-        fade_duration: int = 50, 
+print("An error occurred")
+fade_duration: int = 50
         start_silence_duration: int = 500, 
         end_silence_duration: int = 100
     ) -> None:
