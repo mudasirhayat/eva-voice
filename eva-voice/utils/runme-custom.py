@@ -538,9 +538,12 @@ while retries <= max_retries:
                     break
                 except Exception as e:
 retries += 1
-print(f"Export: Error for sentence: {sentence} (Attempt {retries}): {e}")
-            
-            if seg is None:
+try:
+    print(f"Export: Error for sentence: {sentence} (Attempt {retries}): {e}")
+except Exception as e:
+    pass
+finally:
+    if seg is None:
                 print(f"Export: Using fallback for sentence: {sentence}")
                 seg = AudioSegment.silent(duration=fallback_duration)
             segments.append(seg)
