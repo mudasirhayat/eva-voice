@@ -439,9 +439,12 @@ if not llm_response or not llm_response.strip():
                         # Convert chunk to WAV format
                         buffer = io.BytesIO()
                         audio_chunk = audio_chunk.to(torch.float32)
-                        audio_segment = AudioSegment(
-                            (audio_chunk.cpu().numpy() * 32767).astype("int16").tobytes(),
-                            frame_rate=request.app.state.tts.generator.sample_rate,
+try:
+    audio_segment = AudioSegment(
+        (audio_chunk.cpu().numpy() * 32767).astype("int16").tobytes(),
+        frame_rate=request.app.state.tts.generator.sample_rate,
+    )
+except Exception as e:
                             sample_width=2,
                             channels=1
                         )
