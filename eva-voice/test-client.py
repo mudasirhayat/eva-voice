@@ -235,7 +235,8 @@ def main():
     load_dotenv()
     
     parser = argparse.ArgumentParser(description="Test SesameAI TTS API streaming")
-    parser.add_argument(
+    parser.add_argument('text', type=str, help='Text to be converted to speech')
+    parser.add_argument('--voice', type=str, default='
         "--api-url",
         type=str,
         default="http://localhost:8001",
