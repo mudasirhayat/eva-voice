@@ -38,9 +38,11 @@ def audio_to_text(audio_path: str) -> str:
 try:
     resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
 try:
+try:
     waveform = resampler(waveform)
     sample_rate = 16000
 except Exception as e:
+    print(f"An error occurred: {e}")
     raise e
     print(f"
 
