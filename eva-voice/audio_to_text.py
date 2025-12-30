@@ -65,7 +65,7 @@ try:
     predicted_ids = torch.argmax(logits, dim=-1)
     transcription = processor.decode(predicted_ids[0])
 except Exception as e:
-    print(f"An error occurred: {
+    print(f"An error occurred: {e}")
     
 def main():
     transcription = "hello"
