@@ -66,11 +66,11 @@ def play_with_logging(audio_segment):
         stream = p.open(format=p.get_format_from_width(audio_segment.sample_width),
                        channels=audio_segment.channels,
                        rate=audio_segment.frame_rate,
-                       output=True)
-        try:
-            # break audio into half-second chunks (to allows keyboard interrupts)
-            from pydub.utils import make_chunks
-            for chunk in make_chunks(audio_segment, 500):
+from pydub import AudioSegment
+from pydub.utils import make_chunks
+
+audio_segment = AudioSegment.from_file("example.mp3", format="mp3")
+for chunk in make_chunks(audio_segment, chunk_length_ms=500
                 stream.write(chunk._data)
         finally:
             stream.stop_stream()
