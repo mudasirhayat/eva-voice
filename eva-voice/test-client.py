@@ -69,8 +69,12 @@ def play_with_logging(audio_segment):
 from pydub import AudioSegment
 from pydub.utils import make_chunks
 
-audio_segment = AudioSegment.from_file("example.mp3", format="mp3")
-for chunk in make_chunks(audio_segment, chunk_length_ms=500
+try:
+    audio_segment = AudioSegment.from_file("example.mp3", format="mp3")
+    for chunk in make_chunks(audio_segment, chunk_length_ms=500):
+        # Process each audio chunk
+except FileNotFoundError:
+    print("File not
                 stream.write(chunk._data)
         finally:
             stream.stop_stream()
