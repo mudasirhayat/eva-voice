@@ -15,7 +15,9 @@ try:
     batch_shape = (1, 512, 33)  # fixed shape; you can experiment with different sizes
     generator._model.reset_caches()
 except Exception as e:
-print(f"An error occurred: {e}")
+    print(f"An error occurred: {e}")
+except:
+    print("An unknown error occurred")
 
 try:
     with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
