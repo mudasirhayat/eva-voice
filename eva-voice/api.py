@@ -70,8 +70,8 @@ async def lifespan(app: FastAPI):
         # Initialize TTS from runme.py with voice_dir
         app.state.tts = TTS(device=DEVICE, voice_dir=VOICE_DIR)
         app.state.tts.load_model()
-        logger.info("TTS model loaded successfully!")
-    except Exception as e:
+logger.info("TTS model loaded successfully!")
+except Exception as e:
         logger.exception(f"Fatal Error: Failed to load TTS model: {e}")
         app.state.tts = None
 
