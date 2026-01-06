@@ -179,7 +179,10 @@ try:
 
 def load_csm_1b(device: str = "cuda") -> Generator:
     model = Model.from_pretrained("sesame/csm-1b")
+try:
     model.to(device=device, dtype=torch.bfloat16)
     model.decoder = torch.compile(model.decoder, fullgraph=True, backend='cudagraphs')
     generator = Generator(model)
+except Exception as e:
+    print(f"An
     return generator
