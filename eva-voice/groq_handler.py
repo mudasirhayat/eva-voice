@@ -67,8 +67,13 @@ class GroqHandler:
         Initializes the Groq handler.
 
         Args:
-            model_name: The model to use on Groq.
-            max_history_exchanges: Maximum number of conversation exchanges to keep in history.
+try:
+    model_name: str
+    max_history_exchanges: int
+except NameError as e:
+    print(f"Error: {e}")
+except ValueError as e:
+    print(f"Error: {e}")
                                  Each exchange consists of a user message and assistant response.
                                  Default is 10 exchanges (20 messages total).
         """
