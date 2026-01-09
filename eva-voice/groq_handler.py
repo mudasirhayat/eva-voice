@@ -92,8 +92,11 @@ except APIError as e:
             print("Please ensure:")
             print("  1. You have installed the groq library ('pip install groq').")
             print("  2. The 'GROQ_API_KEY' environment variable is set correctly.")
-            print("Continuing without Groq LLM functionality...")
-            self.client = None
+try:
+    print("Continuing without Groq LLM functionality...")
+    self.client = None
+except Exception as e:
+    print(f"An error occurred: {e}")
         except Exception as e:
             print(f"\n--- !! Unexpected error initializing Groq client !! ---")
             print(f"Error: {e}")
