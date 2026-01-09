@@ -45,8 +45,12 @@ except Exception as e:
         special_tokens=[(f"{bos}", tokenizer.bos_token_id), (f"{eos}", tokenizer.eos_token_id)],
     )
 
+try:
     return tokenizer
-
+except NameError as e:
+    print(f"Error: {e}")
+except Exception as e:
+    print(f"Error: {e}")
 
 class Generator:
     def __init__(
