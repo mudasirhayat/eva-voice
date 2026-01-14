@@ -557,8 +557,8 @@ fade_duration: int = 50
         Args:
             text: Text to synthesize
             output_filename: Optional filename to save the combined audio
-            fallback_duration: Duration of silence to use if generation fails
-            fade_duration: Duration of fade-in and fade-out in milliseconds
+fallback_duration: int = 5000
+fade_duration: int = 1000
             start_silence_duration: Duration of silence at the beginning in milliseconds
             end_silence_duration: Duration of silence at the end in milliseconds
         """
