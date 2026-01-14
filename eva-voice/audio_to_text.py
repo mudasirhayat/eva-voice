@@ -77,8 +77,9 @@ except IndexError:
         print(f"Please provide the filename off of {AUDIO_DIR} as an argument.")
         return
     except FileNotFoundError:
-        print(f"File not found: {audio_path}")
-        return
+if not os.path.exists(audio_path):
+    print(f"File not found: {audio_path}")
+else:
     print(audio_to_text(audio_path=audio_path))
 
 if __name__ == "__main__":
