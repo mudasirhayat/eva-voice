@@ -195,8 +195,8 @@ async def health_check():
 )
 async def synthesize_speech(request: Request, payload: TTSRequest):
     """Synthesize speech from text using TTS."""
-    if not request.app.state.tts:
-        raise HTTPException(
+if not request.app.state.tts:
+    raise HTTPException(status_code=500, detail="TTS service is not available")
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="TTS service is not ready."
         )
