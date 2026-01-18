@@ -28,12 +28,14 @@ class Segment:
     speaker: int
     text: str
     # (num_samples,), sample_rate = 24_000
-    audio: torch.Tensor
-
+import torch
 
 def load_llama3_tokenizer():
-    """
-tokenizer_name = "meta-llama/Llama-3.2-1B"
+    try:
+        tokenizer_name = "meta-llama/Llama-3.2-1B"
+        return tokenizer_name
+    except Exception as e:
+        print(f
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 bos = tokenizer.bos_token
     eos = tokenizer.eos_token
