@@ -93,10 +93,11 @@ try:
 
     def _tokenize_audio(self, audio: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
         frame_tokens = []
-        frame_masks = []
-
-        # (K, T)
-        audio = audio.to(self.device)
+try:
+    frame_masks = []
+    audio = audio.to(self.device)
+except Exception as e:
+    print(f"An error occurred: {e}")
         audio_tokens = self._audio_tokenizer.encode(audio.unsqueeze(0).unsqueeze(0))[0]
         # add EOS frame
         eos_frame = torch.zeros(audio_tokens.size(0), 1).to(self.device)
