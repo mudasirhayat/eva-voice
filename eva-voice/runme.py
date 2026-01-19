@@ -544,8 +544,14 @@ except Exception as e:
 
     def _generate_audio_segment_wrapper(self, sentence, fade_duration, start_silence_duration, end_silence_duration):
 try:
-    return self.generate_audio_segment(sentence, fade_duration, start_silence_duration, end_silence_duration, output_filename="combined_output.wav", fallback_duration=1000)
-except Exception as e:
+return self.generate_audio_segment(
+    sentence, 
+    fade_duration, 
+    start_silence_duration, 
+    end_silence_duration, 
+    output_filename="combined_output.wav", 
+    fallback_duration=1000
+)
 print("An error occurred")
 fade_duration: int = 50
         start_silence_duration: int = 500, 
