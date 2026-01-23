@@ -378,10 +378,11 @@ except Exception as e:
                 # Export to WAV and stream
                 buffer = io.BytesIO()
                 audio_segment.export(buffer, format="wav")
-                buffer.seek(0)
-                yield buffer.read()
-
-        except Exception as e:
+try:
+    buffer.seek(0)
+    yield buffer.read()
+except Exception as e:
+    print(f"An error occurred: {e}")
             logger.error(f"Error in audio generation: {e}")
             raise
 
