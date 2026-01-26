@@ -36,9 +36,12 @@ def load_llama3_tokenizer():
         return tokenizer_name
     except Exception as e:
         print(f
-tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-bos = tokenizer.bos_token
+try:
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    bos = tokenizer.bos_token
     eos = tokenizer.eos_token
+except Exception as e:
+    print(f"Error: {e}")
     tokenizer._tokenizer.post_processor = TemplateProcessing()
 except Exception as e:
     print(f"An error occurred: {e}")
