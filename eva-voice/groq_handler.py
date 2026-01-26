@@ -97,9 +97,9 @@ try:
     self.client = None
 except Exception as e:
     print(f"An error occurred: {e}")
-        except Exception as e:
-            print(f"\n--- !! Unexpected error initializing Groq client !! ---")
-            print(f"Error: {e}")
+except Exception as e:
+    print("\n--- !! Unexpected error initializing Groq client !! ---")
+    print(f"Error: {e}")
             self.client = None
 
     @property
