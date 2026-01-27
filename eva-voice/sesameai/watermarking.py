@@ -60,7 +60,6 @@ decoded_result = watermarker.decode_wav(watermarked_audio_resampled, 44100, phas
 
     return is_watermarked and is_csm_watermarked
 
-
 def check_audio_from_file(audio_path: str) -> None:
     watermarker = load_watermarker(device="cuda")
 
