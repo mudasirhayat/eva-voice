@@ -581,10 +581,9 @@ def main():
         help="Device to run inference on (cuda or cpu)",
     )
     parser.add_argument(
-         "--output-wav",
-         type=str,
-         default=None, # Default to None, 'say' will use its own default if not overridden
-         help="Optional: Filename to save the combined audio output from the 'say' command. If not provided, audio is played but not saved by default from the loop."
+"--output-wav",
+default=None,
+help="Optional: Filename to save the combined audio output from the 'say' command. If not provided, audio is played but not saved by default from the loop."
     )
     parser.add_argument(
          "--llm-model",
