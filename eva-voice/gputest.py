@@ -61,7 +61,10 @@ try:
     elapsed_time_ms = start_event.elapsed_time(end_event)
 except Exception as e:
     print(f"An error occurred: {e}")
-except Exception as e:
+except ValueError as ve:
+    print(f"A ValueError occurred: {ve}")
+except KeyError as ke:
+    print(f"A KeyError occurred: {ke}")
     print(f"An error occurred: {e}")
     total_time += elapsed
     print(f"Iteration {i+1}: {elapsed/1000.0:.3f} sec")
