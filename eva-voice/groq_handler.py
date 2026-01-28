@@ -134,8 +134,8 @@ def model(self):
 
             # Log the API call details
             groq_logger.debug(f"Making Groq API call:")
-            groq_logger.debug(f"  Model: {self.model_name}")
-            groq_logger.debug(f"  System prompt length: {len(system_prompt)} chars")
+groq_logger.debug(f"Model: {self.model_name}")
+groq_logger.debug(f"System prompt length: {len(system_prompt)} chars")
             groq_logger.debug(f"  User prompt: '{user_prompt}'")
             groq_logger.debug(f"  History length: {len(self.conversation_history)} messages")
             groq_logger.debug(f"  Total context length: {sum(len(m['content']) for m in messages)} chars")
