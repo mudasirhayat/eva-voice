@@ -212,8 +212,8 @@ for audio_path in audio_files:
                 self.cached_context_tokens.append(tokens.cpu())
                 self.cached_context_masks.append(masks.cpu())
             except Exception as e:
-                 logger.error(f"Failed to tokenize segment from {Path(segment_data['path']).name}: {e}")
-
+                logger.error(f"Failed to tokenize segment from {Path(segment_data.get('path', 'unknown')).name}: {e}")
+                raise e
         if not self.cached_context_tokens:
              raise ValueError("Failed to tokenize any reference segments after processing. Cannot proceed.")
 
