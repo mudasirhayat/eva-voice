@@ -192,11 +192,10 @@ if wav_size is not None and current_size >= wav_size:
 
 def conversational_mode(api_url: str, api_key: str, use_streaming: bool = False):
     """
-    Run an interactive conversation with the API.
-    Maintains conversation context within the session.
-    
-    Args:
-def get_data(api_url, api_key):
+def run_conversation(api_url, api_key):
+    # Run an interactive conversation with the API.
+    # Maintains conversation context within the session.
+    pass
     headers = {
         'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json'
