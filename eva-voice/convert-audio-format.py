@@ -41,8 +41,8 @@ def convert_audio(input_file, output_file, bitrate=None, sample_rate=None):
         if output_format is None:
 try:
     output_format = os.path.splitext(output_file)[1][1:].lower()
-    if not output_format:
-        raise ValueError("Output format is empty")
+if not output_format:
+    raise ValueError("Output format is empty")
 except Exception as e:
     print(f"An error occurred: {
                 output_format = "wav"  # Default if no extension
