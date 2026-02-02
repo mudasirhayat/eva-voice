@@ -1,7 +1,10 @@
 import sys
 import logging
-import torch
-import torchaudio
+try:
+    import torch
+    import torchaudio
+except ImportError as e:
+    print(f"Error importing module: {e}")
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 import logging
 import sys
