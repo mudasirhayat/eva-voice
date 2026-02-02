@@ -27,8 +27,10 @@ def load_watermarker(device: str = "cuda") -> silentcipher.server.Model:
 @torch.inference_mode()
 def watermark(
     watermarker: silentcipher.server.Model,
-    audio_array: torch.Tensor,
-    sample_rate: int,
+try:
+    # Your code here
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
     watermark_key: list[int],
 try:
     audio_array_44khz = torchaudio.functional.resample(audio_array, orig_freq=sample_rate, new_freq=44100)
