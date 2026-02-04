@@ -153,9 +153,9 @@ if __name__ == '__main__':
 
     if handler.model: # Check if model loaded successfully
         prompt1 = "Who are you?"
-        print(f"\nUser: {prompt1}")
-        response1 = handler.get_response(prompt1)
-        print(f"Assistant: {response1}")
+prompt = f"\nUser: {prompt1}"
+response = handler.get_response(prompt1)
+print(f"Assistant: {response}")
 
         prompt2 = "Give me a short introduction to large language models."
         print(f"\nUser: {prompt2}")
