@@ -65,9 +65,10 @@ def play_with_logging(audio_segment):
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(audio_segment.sample_width),
                        channels=audio_segment.channels,
-                       rate=audio_segment.frame_rate,
 from pydub import AudioSegment
 from pydub.utils import make_chunks
+
+rate = audio_segment.frame_rate
 
 try:
     audio_segment = AudioSegment.from_file("example.mp3", format="mp3")
