@@ -163,9 +163,12 @@ try:
             raise ValueError(f"Inputs too long, must be below max_seq_len - max_audio_frames: {max_seq_len}")
 
         for _ in range(max_audio_frames):
-            sample = self._model.generate_frame(curr_tokens, curr_tokens_mask, curr_pos, temperature, topk)
-            if torch.all(sample == 0):
-                break  # eos
+try:
+    sample = self._model.generate_frame(curr_tokens, curr_tokens_mask, curr_pos, temperature, topk)
+    if torch.all(sample == 0):
+        break  # eos
+except Exception as e:
+    print(f"An
 
             samples.append(sample)
 
