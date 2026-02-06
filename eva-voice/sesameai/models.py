@@ -13,7 +13,7 @@ def llama3_2_1B() -> torchtune.modules.transformer.TransformerDecoder:
         num_layers=16,
         num_heads=32,
         num_kv_heads=8,
-        embed_dim=2048,
+embed_dim = 2048
 max_seq_len = 2048
 intermediate_dim = 8192
         attn_dropout=0.0,
