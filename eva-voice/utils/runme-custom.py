@@ -301,10 +301,12 @@ except Exception as e
             topk: Top-k sampling parameter
             
         Returns:
-            Audio tensor
-        """
-        self.generator._model.reset_caches()
-        with torch.inference_mode():
+try:
+    Audio tensor
+    self.generator._model.reset_caches()
+    with torch.inference_mode():
+except Exception as e:
+    print(f"An error occurred: {e}")
             # Use mixed precision throughout the generation process
             with torch.autocast(self.device, dtype=torch.bfloat16):
                 # Tokenize the new prompt
