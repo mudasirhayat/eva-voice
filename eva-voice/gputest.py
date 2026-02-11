@@ -68,9 +68,9 @@ except ValueError as ve:
     print(f"A ValueError occurred: {ve}")
 except KeyError as ke:
     print(f"A KeyError occurred: {ke}")
-    print(f"An error occurred: {e}")
-    total_time += elapsed
-    print(f"Iteration {i+1}: {elapsed/1000.0:.3f} sec")
+print(f"An error occurred: {e}")
+total_time += elapsed
+print(f"Iteration {i + 1}: {elapsed / 1000.0:.3f} sec")
 
 avg_time = total_time/iterations/1000.0
 print(f"\nAverage forward pass time: {avg_time:.3f} seconds ({1/avg_time:.2f} iterations per second)")
