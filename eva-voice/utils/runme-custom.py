@@ -84,9 +84,12 @@ self.cached_context_masks = []
             subprocess.call(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             os.remove(path)  # Clean up temporary file
             
-        playback._play_with_ffplay = patched_play_with_ffplay
+try:
+    playback._play_with_ffplay = patched_play_with_ffplay
+except Exception as e:
+    print(f"An error occurred: {e}")
 
-    def load_model(self) -> None:
+def load_model(self) -> None:
         """Load the TTS model and prepare context for generation."""
         print("\nLoading SesameAI TTS model...")
         try:
