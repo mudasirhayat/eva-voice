@@ -309,9 +309,11 @@ try:
     self.generator._model.reset_caches()
     with torch.inference_mode():
 except Exception as e:
+try:
+    with torch.autocast(self.device, dtype=torch.bfloat16):
+        # existing code here
+except Exception as e:
     print(f"An error occurred: {e}")
-            # Use mixed precision throughout the generation process
-            with torch.autocast(self.device, dtype=torch.bfloat16):
                 # Tokenize the new prompt
                 gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
                 # Combine cached tokens with new prompt tokens
