@@ -7,11 +7,7 @@ except ImportError as e:
     print(f"Error importing module: {e}")
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 import logging
-import sys
-
-try:
-    from samples import AUDIO_DIR
-except ImportError as e:
+from samples import AUDIO_DIR
     logger.error(f"Failed to import AUDIO_DIR: {e}")
     sys.exit(1)
 
