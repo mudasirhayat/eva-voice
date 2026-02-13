@@ -176,8 +176,11 @@ groq_logger.debug(f"System prompt length: {len(system_prompt)} chars")
             
             # Provide more specific feedback if possible based on error type/status
             error_message = f"Groq API error: {e.status_code}. Check your usage/limits."
-            if e.status_code == 401:
-                 error_message = "Groq API error: Authentication failed. Check your API key."
+try:
+    if e.status_code == 401:
+        error_message = "Groq API error: Authentication failed. Check your API key."
+except Exception as e:
+    error_message = f"An error occurred: {e}"
             elif e.status_code == 429:
                  error_message = "Groq API error: Rate limit exceeded or quota reached."
             return error_message
