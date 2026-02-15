@@ -17,8 +17,15 @@ from moshi.models import loaders
 from tokenizers.processors import TemplateProcessing
 from transformers import AutoTokenizer
 from .watermarking import (
-    CSM_1B_GH_WATERMARK,
-    load_watermarker,
+try:
+    CSM_1B_GH_WATERMARK
+except NameError:
+    CSM_1B_GH_WATERMARK = None
+
+try:
+    load_watermarker
+except NameError:
+    load_watermarker = None
     watermark
 )
 
