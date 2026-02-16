@@ -142,10 +142,12 @@ except Exception as e:
             return "I encountered an error trying to respond."
 
 # Example Usage (for testing the handler directly)
+import torch
+
 if __name__ == '__main__':
-    # Note: This requires significant resources for larger models like Qwen 72B
-    test_model_name = "Qwen/Qwen2.5-7B-Instruct-AWQ" # Use a smaller model for easier testing
-    test_device = "cuda" if torch.cuda.is_available() else "cpu"
+    try:
+        test_model_name = "Qwen/Qwen2.5-7B-Instruct-AWQ"  # Use a smaller model for easier testing
+        test_device =
 
     print(f"Testing LLMHandler with model: {test_model_name} on device: {test_device}")
 
