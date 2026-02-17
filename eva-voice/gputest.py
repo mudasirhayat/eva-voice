@@ -8,12 +8,13 @@ import warnings
 # Load generator
 warnings.filterwarnings("ignore", category=FutureWarning)
 generator = load_csm_1b(hf_hub_download(repo_id="sesame/csm-1b", filename="ckpt.pt"), "cuda")
-torch.cuda.set_per_process_memory_fraction(0.9, generator.device)
-
-# Set a fixed dummy input (you can adjust batch_shape as desired)
 try:
-    batch_shape = (1, 512, 33)  # fixed shape; you can experiment with different sizes
-    generator._model.reset_caches()
+    torch.cuda.set_per_process_memory_fraction(0.9, generator.device)
+except Exception as e:
+    print(f"Error setting per process memory fraction: {e}")
+
+try:
+    batch_shape = (1, 512,
 except Exception as e:
     print(f"An error occurred: {e}")
 except:
