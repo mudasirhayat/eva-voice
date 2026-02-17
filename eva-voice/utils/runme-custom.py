@@ -310,8 +310,9 @@ try:
     with torch.inference_mode():
 except Exception as e:
 try:
+try:
     with torch.autocast(self.device, dtype=torch.bfloat16):
-        # existing code here
+        pass
 except Exception as e:
     print(f"An error occurred: {e}")
                 # Tokenize the new prompt
