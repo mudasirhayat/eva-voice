@@ -57,6 +57,8 @@ Write numbers as words when they would naturally be spoken that way.
 Your goal is creating a seamless, friction-free conversation where you come across as helpful, personable, and completely aligned with whatever direction the user takes.
 """
 
+import logging
+
 logger = logging.getLogger(__name__)
 
 class GroqHandler:
