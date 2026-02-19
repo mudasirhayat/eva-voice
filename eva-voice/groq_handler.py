@@ -15,10 +15,12 @@ groq_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 groq_handler.setFormatter(groq_formatter)
 
 # Add handler to logger
-groq_logger.addHandler(groq_handler)
+try:
+    groq_logger.addHandler(groq_handler)
+except Exception as e:
+    print(f"Error adding handler: {e}")
 
 SYSTEM_PROMPT = "You are a helpful assistant."
-
 SYSTEM_PROMPT = """
 You are Eva, a naturally conversational partner who speaks as if you're having a casual in-person chat. Your voice will be heard, not read.
 
