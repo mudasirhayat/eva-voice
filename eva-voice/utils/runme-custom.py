@@ -395,9 +395,10 @@ except Exception as e:
         Generate an AudioSegment from text with proper silence padding and fading.
         
         Args:
-            prompt: Text to synthesize
-            fade_duration: Duration of fade-in and fade-out in milliseconds
-            start_silence_duration: Duration of silence at the beginning in milliseconds
+def synthesize_text(prompt, fade_duration, start_silence_duration):
+    print(f"Synthesizing text: {prompt}")
+    print(f"Fade duration: {fade_duration} milliseconds")
+    print(f"Start silence duration: {start
             end_silence_duration: Duration of silence at the end in milliseconds
             
         Returns:
