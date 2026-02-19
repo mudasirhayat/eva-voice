@@ -11,12 +11,11 @@ groq_handler = logging.FileHandler('groq.log')
 groq_handler.setLevel(logging.DEBUG)
 
 # Create formatter
-groq_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-groq_handler.setFormatter(groq_formatter)
-
-# Add handler to logger
 try:
+    groq_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    groq_handler.setFormatter(groq_formatter)
     groq_logger.addHandler(groq_handler)
+except Exception as e
 except Exception as e:
     print(f"Error adding handler: {e}")
 
