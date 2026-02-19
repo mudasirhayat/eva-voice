@@ -175,8 +175,8 @@ curr_sample = c0_sample.clone()
 curr_pos = torch.arange(0, curr_h.size(1), device=curr_h.device).unsqueeze(0).repeat(curr_h.size(0), 1)
 self.decoder.reset_caches()
         for i in range(1, self.config.audio_num_codebooks):
-            curr_decoder_mask = _index_causal_mask(self.decoder_causal_mask, curr_pos)
-            decoder_h = self.decoder(self.projection(curr_h), input_pos=curr_pos, mask=curr_decoder_mask).to(
+curr_decoder_mask = _index_causal_mask(self.decoder_causal_mask, curr_pos)
+decoder_h = self.decoder(self.projection(curr_h), input_pos=curr_pos, mask=curr_decoder_mask).to(
                 dtype=dtype
             )
 ci_logits = torch.mm(decoder_h[:, -1, :], self.audio_head[i - 1])
