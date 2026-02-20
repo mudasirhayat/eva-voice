@@ -123,9 +123,11 @@ if __name__ == "__main__":
 if parser.parse_args().list_formats:
         list_supported_formats()
 if args.input_file == "formats":
-    sys.exit(0)
-convert_audio(
-        args.input_file,
+try:
+    convert_audio(args.input_file)
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
+    sys.exit(1)
         args.output,
         args.format,
         args.bitrate,
