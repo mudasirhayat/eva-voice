@@ -25,8 +25,7 @@ try:
         _ = generator._model.generate_frame(
             torch.zeros(*batch_shape, device=generator.device).long(),
     )
-except Exception as
-torch.ones(*batch_shape, device=generator.device, dtype=torch.bool),
+torch.ones(*batch_shape, device=generator.device, dtype=torch.bool)
 torch.arange(0, batch_shape[1], device=generator.device).unsqueeze(0)
                     .long(),
                 temperature=0.9,
