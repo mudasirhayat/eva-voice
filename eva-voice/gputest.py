@@ -64,7 +64,7 @@ except Exception as e:
 try:
     elapsed_time_ms = start_event.elapsed_time(end_event)
 except Exception as e:
-    print(f"An error occurred: {e}")
+    raise e
 except ValueError as ve:
     print(f"A ValueError occurred: {ve}")
 except KeyError as ke:
