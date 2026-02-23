@@ -4,9 +4,11 @@ try:
     import torch
     import torchaudio
 except ImportError as e:
-    print(f"Error importing module: {e}")
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 import logging
+try:
+    from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+except Exception as e:
+    print(f"Error importing module: {e}")
 from samples import AUDIO_DIR
     logger.error(f"Failed to import AUDIO_DIR: {e}")
     sys.exit(1)
