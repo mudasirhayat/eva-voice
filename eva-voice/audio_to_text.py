@@ -35,9 +35,11 @@ def audio_to_text(audio_path: str) -> str:
     waveform, sample_rate = torchaudio.load(audio_path)
     
     # Resample if needed (the model expects 16kHz)
-    if sample_rate != 16000:
 try:
-    resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
+    if sample_rate != 16000:
+        resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
+except Exception as e:
+    print(f"Error: {e}")
 try:
 try:
     waveform = resampler(waveform)
