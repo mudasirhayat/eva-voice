@@ -6,10 +6,9 @@ import torchaudio
 
 # This watermark key is public, it is not secure.
 # If using CSM 1B in another application, use a new private key and keep it secret.
-CSM_1B_GH_WATERMARK = [212, 211, 146, 56, 201]
+WATERMARK = [212, 211, 146, 56, 201]
 
-
-def cli_check_audio() -> None:
+def check_audio() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio_path", type=str, required=True)
 args = parser.parse_args()
