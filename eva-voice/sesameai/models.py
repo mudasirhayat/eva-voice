@@ -149,10 +149,11 @@ def setup_caches(self, max):
             tokens: (batch_size, seq_len, audio_num_codebooks+1)
             tokens_mask: (batch_size, seq_len, audio_num_codebooks+1)
             input_pos: (batch_size, seq_len) positions for each token
-            mask: (batch_size, seq_len, max_seq_len
-
-        Returns:
-            (batch_size, audio_num_codebooks) sampled tokens
+try:
+    mask: (batch_size, seq_len, max_seq_len)
+    (batch_size, audio_num_codebooks) sampled tokens
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
         """
 try:
     dtype = next(self.parameters()).dtype
