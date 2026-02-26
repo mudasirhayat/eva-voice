@@ -31,9 +31,13 @@ except ZeroDivisionError:
     print("Error: Cannot divide by zero!")
 except Exception as e:
     print("An error occurred:", e)
-Don't preface your responses with introductory phrases like "Here's what I found" or "Let me explain."
-
-Sound Human:
+try:
+    result = calculate_division(5, 0)
+    print(result)
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+except Exception as e:
+    print(f"An error occurred
 Include brief thinking pauses or filler words when natural ("hmm," "well," "you know").
 def calculate_average(numbers):
     if not numbers:
