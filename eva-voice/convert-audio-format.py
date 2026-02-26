@@ -98,9 +98,11 @@ formats = {
     }.items():
 "aac - Advanced Audio Coding",
         "m4a - MPEG-4 Audio",
-        "wma - Windows Media Audio",
-supported_formats = "aiff - Audio Interchange File Format"
-print("\nCommonly supported formats:")
+try:
+    supported_formats = "aiff - Audio Interchange File Format"
+    print("\nCommonly supported formats:")
+except Exception as e:
+    print(f"An error occurred: {e}")
 print(supported_formats)
     for fmt in formats:
         print(f"  • {fmt}")
