@@ -118,9 +118,8 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", help="Path to the output audio file")
     parser.add_argument("-f", "--format", help="Output format (wav, mp3, ogg, flac, etc.)")
     parser.add_argument("-b", "--bitrate", help="Bitrate for the output file (e.g., '192k')")
-    parser.add_argument("-sr", "--sample-rate", type=int, help="Sample rate for the output file (e.g., 44100)")
-    parser.add_argument("-c", "--channels", type=int, choices=[1, 2], help="Number of audio channels (1=mono, 2=stereo)")
-    parser.add_argument("-l", "--list-formats", action="store_true", help="List commonly supported formats")
+parser.add_argument("-sr", "--sample-rate", type=int, help="Sample rate for the output file (e.g., 44100)")
+parser.add_argument("-c", "--channels", type=int, choices=[1, 2], help="
     
 if parser.parse_args().list_formats:
         list_supported_formats()
