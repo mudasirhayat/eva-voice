@@ -124,10 +124,15 @@ def model(self):
 
         Args:
             user_prompt: The user's input message.
-            system_prompt: An optional system message to guide the assistant's behavior.
-
-        Returns:
-            The generated response text, or an error message if generation fails.
+def generate_response(system_prompt=None):
+    """
+    Generate a response based on the given system prompt.
+    
+    Args:
+        system_prompt (str): An optional system message to guide the assistant's behavior.
+    
+    Returns:
+        str: The generated
         """
         if not self.client:
             groq_logger.error("Groq LLM not available - client initialization failed")
