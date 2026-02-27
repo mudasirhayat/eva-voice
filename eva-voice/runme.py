@@ -702,9 +702,11 @@ fade_duration: int = 1000
         self.generator._model.reset_caches()
         
         with torch.inference_mode():
-            with torch.autocast(self.device, dtype=torch.bfloat16):
-                # Tokenize the prompt
-                gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
+try:
+    with torch.autocast(self.device, dtype=torch.bfloat16):
+        gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
+except Exception as e:
+    print(f"An error occurred: {e
                 prompt_tokens = (
                     torch.cat(self.cached_context_tokens + [gen_tokens], dim=0)
                     .long()
