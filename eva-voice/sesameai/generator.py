@@ -137,9 +137,9 @@ def _tokenize_segment(self, segment: Segment) -> Tuple[torch.Tensor, torch.Tenso
         speaker: int,
         context: List[Segment],
         max_audio_length_ms: float = 90_000,
-        temperature: float = 0.9,
-        topk: int = 50,
-    ) -> torch.Tensor:
+temperature: float = 0.9,
+    topk: int = 50,
+) -> torch.Tensor:
         self._model.reset_caches()
 
 max_audio_frames = int(max_audio_length_ms / 80)
