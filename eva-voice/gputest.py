@@ -46,8 +46,13 @@ except Exception as e:
     start_event.record()
     with torch.inference_mode():
         with torch.autocast("cuda", dtype=torch.bfloat16):
-            _ = generator._model.generate_frame(
-                    torch.zeros(*batch_shape, device=generator.device).long(),
+try:
+    _ = generator._model.generate_frame(
+        torch.zeros(*batch_shape, device=generator.device).long(),
+    )
+except Exception as e:
+    print(f"An error occurred: {e}")
+    # Add appropriate error handling code
                     torch.ones(*batch_shape, device=generator.device).bool(),
                     torch.arange(0, batch_shape[1], device=generator.device)
                         .unsqueeze(0)
