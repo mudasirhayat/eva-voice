@@ -314,7 +314,7 @@ try:
     with torch.autocast(self.device, dtype=torch.bfloat16):
         pass
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print("An error occurred:", e)
                 # Tokenize the new prompt
                 gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
                 # Combine cached tokens with new prompt tokens
