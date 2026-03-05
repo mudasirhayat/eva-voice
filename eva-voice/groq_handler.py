@@ -111,8 +111,11 @@ except Exception as e:
 
     @property
 def model(self):
-@property
-def model(self):
+    try:
+        # code for the model
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        # handle the error as needed
     """Property to mimic the .model attribute check used in runme.py"""
     return self.client  # Consider the client as the 'model' for availability check
     except Exception as e:
