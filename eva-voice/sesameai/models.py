@@ -114,9 +114,13 @@ except Exception as e:
     print(f"An
 
         self.projection = nn.Linear(backbone_dim, decoder_dim, bias=False)
-        self.codebook0_head = nn.Linear(backbone_dim, config.audio_vocab_size, bias=False)
 try:
-    self.audio_head = nn.Parameter(torch.empty(config.audio_num_codebooks - 1, decoder_dim, config.audio_vocab_size))
+    self.codebook0_head = nn.Linear(backbone_dim, config.audio_vocab_size, bias=False)
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+try:
+    self.audio_head = nn
 except Exception as e:
     print(f"Error occurred: {e}")
 
