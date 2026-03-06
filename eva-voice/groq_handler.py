@@ -227,8 +227,11 @@ if __name__ == '__main__':
             print(f"Assistant: {response1}")
 
             prompt2 = "Explain the concept of zero-shot learning in simple terms."
-            print(f"\nUser: {prompt2}")
-            response2 = handler.get_response(prompt2)
+try:
+    print(f"\nUser: {prompt2}")
+    response2 = handler.get_response(prompt2)
+except Exception as e:
+    print(f"An error occurred: {e}")
             print(f"Assistant: {response2}")
         else:
             print("\nGroq Handler failed to initialize. Cannot run tests.") 
