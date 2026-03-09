@@ -287,8 +287,8 @@ if not args.api_key:
             conversational_mode(args.api_url, args.api_key, args.streaming)
         else:
             stream_and_play(args.api_url, args.api_key, args.prompt, args.streaming)
-    except Exception as e:
-        logger.error(f"Test failed: {e}")
+except Exception as e:
+    logger.error("An error occurred", exc_info=True)
         return 1
     
     return 0
