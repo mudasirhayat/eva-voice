@@ -99,10 +99,10 @@ if not self.model or not self.tokenizer:
             ]
 
             # Apply the chat template
-            text = self.tokenizer.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=True # Important for instruction-following models
+text = self.tokenizer.apply_chat_template(
+    tokenize=False,
+    add_generation_prompt=True  # Important for instruction-following models
+)
             )
 
             # Tokenize the formatted text
