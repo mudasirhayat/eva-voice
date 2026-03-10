@@ -73,10 +73,13 @@ self.cached_context_masks = []
         
     def _patch_audio_playback(self) -> None:
         """Patch the audio playback functionality to avoid issues with ffplay."""
-        from pydub import playback
-        
-        def patched_play_with_ffplay(seg: AudioSegment) -> None:
-            """Enhanced playback function that properly cleans up temporary files."""
+from pydub import playback
+from pydub.exceptions import PydubException
+
+def patched_play_with_ffplay(seg: AudioSegment) -> None:
+    try:
+        playback.play(seg)
+    except PydubException as
             fd, path = tempfile.mkstemp(suffix=".wav")
             os.close(fd)
             seg.export(path, format="wav")
