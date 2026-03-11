@@ -51,14 +51,8 @@ except Exception as e:
 
     # Convert multichannel audio to mono by averaging channels
     if waveform.shape[0] > 1:
-        waveform = waveform.mean(dim=0, keepdim=True)
-    
-    # Remove channel dimension for processing
-    waveform = waveform.squeeze()
-
-    # Process waveform to extract input values
-try:
-    inputs = processor(waveform, sampling_rate=sample_rate, return_tensors="pt", padding=True)
+waveform = waveform.mean(dim=0, keepdim=True).squeeze()
+inputs = processor(waveform, sampling_rate=sample_rate, return_tensors="pt", padding=True)
 except Exception as e:
     print(f"Error processing waveform: {e}")
     # Add appropriate error handling code here
