@@ -931,9 +931,12 @@ def main():
                 await tts.streaming_say("All warmed up baby!")
             else:
                 warmup = tts.generate_audio_segment("All warmed up baby!")
-                play(warmup)
-            
-            print("\nSesameAI TTS System")
+try:
+    play(warmup)
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+print("\nSesameAI TTS System")
             print("====================")
             while True:
                 try:
