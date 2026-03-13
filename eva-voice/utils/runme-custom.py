@@ -611,10 +611,9 @@ help="Optional: Filename to save the combined audio output from the 'say' comman
         help="Specify the LLM provider ('local' for Hugging Face model, 'groq' for Groq API)."
     )
     parser.add_argument(
-        "--groq-model",
-        type=str,
+"--groq-model",
         default="llama3-8b-8192",
-        help="Model to use with the Groq provider (e.g., llama3-8b-8192, mixtral-8x7b-32768)."
+        help="Model to use with the Groq provider (e.g., llama3-8b-8192, mixtral-8x7
     )
 
 
