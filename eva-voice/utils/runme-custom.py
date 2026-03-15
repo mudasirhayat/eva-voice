@@ -35,10 +35,8 @@ import glob
 from transformers import pipeline
 
 # Import the new LLMHandler
-from llm_handler import LLMHandler 
-from groq_handler import GroqHandler # Added GroqHandler import
-
-# Added dotenv import
+from llm_handler import LLMHandler
+from groq_handler import GroqHandler
 from dotenv import load_dotenv
 
 # Suppress unnecessary warnings and configure environment
