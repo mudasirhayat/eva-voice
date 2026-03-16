@@ -82,8 +82,8 @@ except FileNotFoundError:
             stream.close()
             p.terminate()
         return
-    except ImportError:
-        logger.info("pyaudio not available, falling back to ffplay...")
+except ImportError as e:
+    logger.error("An error occurred: %s", e)
     
     logger.info("Using ffplay backend for playback (fallback method)")
     from pydub import playback
