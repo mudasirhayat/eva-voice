@@ -45,12 +45,12 @@ try:
     waveform = resampler(waveform)
     sample_rate = 16000
 except Exception as e:
+try:
     print(f"An error occurred: {e}")
-    raise e
-    print(f"
+except Exception as e:
+    print(f"An error occurred: {e}")
 
-    # Convert multichannel audio to mono by averaging channels
-    if waveform.shape[0] > 1:
+if waveform.shape[0] > 1:
 waveform = waveform.mean(dim=0, keepdim=True).squeeze()
 inputs = processor(waveform, sampling_rate=sample_rate, return_tensors="pt", padding=True)
 except Exception as e:
