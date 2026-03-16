@@ -222,8 +222,11 @@ if __name__ == '__main__':
 
         if handler.client: # Check if client initialized
             prompt1 = "Who are you?"
-            print(f"\nUser: {prompt1}")
-            response1 = handler.get_response(prompt1)
+try:
+    print(f"\nUser: {prompt1}")
+    response1 = handler.get_response(prompt1)
+except Exception as e:
+    print(f"An error occurred: {e}")
             print(f"Assistant: {response1}")
 
             prompt2 = "Explain the concept of zero-shot learning in simple terms."
