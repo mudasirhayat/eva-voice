@@ -239,9 +239,10 @@ except Exception as e
             try:
                 with open(metadata_auto_path, 'w', newline='', encoding='utf-8') as csvfile:
                     fieldnames = ['filename', 'transcript']
-                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                    writer.writeheader()
-                    writer.writerows(generated_metadata)
+with open('metadata.csv', 'w', newline='') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(generated_metadata)
                 print(f"Auto-generated transcripts saved to: {metadata_auto_path}")
             except Exception as meta_e:
                 logger.error(f"Could not save auto-generated metadata csv: {meta_e}")
