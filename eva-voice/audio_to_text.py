@@ -1,8 +1,11 @@
 import sys
 import logging
 try:
+try:
     import torch
     import torchaudio
+except ImportError as e:
+    print(f"Error importing module: {e}")
 except ImportError as e:
 import logging
 try:
