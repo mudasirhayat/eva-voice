@@ -147,8 +147,10 @@ class TTS:
         Initialize the Text-to-Speech engine.
         
         Args:
-            device: Device to run inference on ("cuda" or "cpu")
-            model_repo: HuggingFace repository ID for the model
+device: str, model_repo: str
+def run_inference(device: str, model_repo: str):
+    if device not in ["cuda", "cpu"]:
+        raise ValueError("Invalid device. Choose 'cuda' or 'cpu'.")
             voice_dir: Path to the directory containing voice reference audio files.
         """
         self.device = device
