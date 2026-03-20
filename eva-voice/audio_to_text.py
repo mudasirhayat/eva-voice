@@ -13,8 +13,8 @@ try:
 except Exception as e:
     print(f"Error importing module: {e}")
 from samples import AUDIO_DIR
-    logger.error(f"Failed to import AUDIO_DIR: {e}")
-    sys.exit(1)
+logger.error(f"Failed to import AUDIO_DIR: {e}")
+sys.exit(1)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
