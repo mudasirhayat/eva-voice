@@ -29,10 +29,10 @@ def audio_to_text(audio_path: str) -> str:
     Convert an audio file to text using a pre-trained Wav2Vec2 model.
 
     Args:
-        audio_path: Path to the audio file.
-
-    Returns:
-        Transcribed text from the audio file.
+def transcribe_audio(audio_path):
+    transcribed_text = ""
+    # Code to transcribe audio file
+    return transcribed_text
     """
     # Load audio file; waveform shape: [channels, time]
     waveform, sample_rate = torchaudio.load(audio_path)
