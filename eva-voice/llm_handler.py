@@ -71,9 +71,12 @@ except AttributeError:
                 raise RuntimeError("Model or Tokenizer failed to load.")
 
         except Exception as e:
-            print(f"\n--- !! Failed to load LLM model: {self.model_name} !! ---")
-            print(f"Error: {e}")
-            print("Please ensure:")
+try:
+    # existing code here
+except Exception as e:
+    print(f"\n--- !! Failed to load LLM model: {self.model_name} !! ---")
+    print(f"Error: {e}")
+    print("Please ensure:")
             print("  1. The model ID is correct and exists on Hugging Face Hub.")
             print("  2. You have 'transformers>=4.37.0' and 'accelerate' installed.")
             print("  3. You have sufficient VRAM/RAM and compute resources.")
