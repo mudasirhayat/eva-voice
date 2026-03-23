@@ -235,11 +235,9 @@ except Exception as e:
                 except Exception as e:
                     print(f"Failed to load cache file ({cache_path}): {e}. Regenerating context.")
             else:
-                print("No cache file found. Generating context from audio files.")
-
-            # --- Cache miss or invalid cache: Generate context ---
-            print(f"Scanning {self.voice_dir} for audio files...")
-            audio_files = []
+print("No cache file found. Generating context from audio files.")
+print(f"Scanning {self.voice_dir} for audio files...")
+audio_files = []
             for ext in supported_audio_extensions:
                 audio_files.extend(voice_path.glob(ext))
             
