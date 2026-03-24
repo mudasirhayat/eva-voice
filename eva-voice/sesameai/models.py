@@ -150,9 +150,11 @@ def setup_caches(self, max):
     ) -> torch.Tensor:
         """
         Args:
-            tokens: (batch_size, seq_len, audio_num_codebooks+1)
-            tokens_mask: (batch_size, seq_len, audio_num_codebooks+1)
-            input_pos: (batch_size, seq_len) positions for each token
+try:
+    # Your existing code here
+    
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
 try:
     mask: (batch_size, seq_len, max_seq_len)
     (batch_size, audio_num_codebooks) sampled tokens
