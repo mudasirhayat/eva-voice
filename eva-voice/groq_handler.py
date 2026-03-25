@@ -7,12 +7,13 @@ groq_logger = logging.getLogger('groq')
 groq_logger.setLevel(logging.DEBUG)
 
 # Create file handler for groq.log
-groq_handler = logging.FileHandler('groq.log')
-groq_handler.setLevel(logging.DEBUG)
+import logging
 
-# Create formatter
 try:
+    groq_handler = logging.FileHandler('groq.log')
+    groq_handler.setLevel(logging.DEBUG)
     groq_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+except
     groq_handler.setFormatter(groq_formatter)
     groq_logger.addHandler(groq_handler)
 except Exception as e
