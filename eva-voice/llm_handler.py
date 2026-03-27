@@ -139,8 +139,8 @@ except Exception as e:
 except Exception as e:
     print(f"An error occurred: {e
 
-        except Exception as e:
-            logger.error(f"Error during LLM generation: {e}")
+except Exception as e:
+    logger.error("Error during LLM generation: %s", e)
             return "I encountered an error trying to respond."
 
 # Example Usage (for testing the handler directly)
