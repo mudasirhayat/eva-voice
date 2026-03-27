@@ -4,6 +4,11 @@ import silentcipher
 import torch
 import torchaudio
 
+try:
+    # Add your code here
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
+
 # This watermark key is public, it is not secure.
 # If using CSM 1B in another application, use a new private key and keep it secret.
 WATERMARK = [212, 211, 146, 56, 201]
