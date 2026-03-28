@@ -102,9 +102,11 @@ class Model(
 ):
     def __init__(self, config: ModelArgs):
         super().__init__()
-        self.config = config
-
-        self.backbone, backbone_dim = _prepare_transformer(FLAVORS[config.backbone_flavor]())
+try:
+    self.config = config
+    self.backbone, backbone_dim = _prepare_transformer(FLAVORS[config.backbone_flavor]())
+except KeyError as e:
+    print(f"Error: Backbone flavor '{config.backbone_fl
         self.decoder, decoder_dim = _prepare_transformer(FLAVORS[config.decoder_flavor]())
 
 try:
