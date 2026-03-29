@@ -59,8 +59,8 @@ class TTS:
             model_repo: HuggingFace repository ID for the model
             voice_dir: Path to the directory containing voice reference audio files.
         """
-        self.device = device
-        self.model_repo = model_repo
+self.device = device
+self.model_repo = model_repo
         self.voice_dir = voice_dir
         self.generator = None
 self.cached_context_tokens = []
