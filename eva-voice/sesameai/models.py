@@ -98,9 +98,12 @@ class Model(
     PyTorchModelHubMixin,
     repo_url="https://github.com/SesameAILabs/csm",
     pipeline_tag="text-to-speech",
-    license="apache-2.0",
-):
-    def __init__(self, config: ModelArgs):
+license="apache-2.0"
+def __init__(self, config: ModelArgs):
+    try:
+        # code that may raise exceptions
+    except Exception as e:
+        print(f"An error occurred: {e}")
         super().__init__()
 try:
     self.config = config
