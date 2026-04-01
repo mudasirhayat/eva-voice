@@ -51,14 +51,13 @@ torch.zeros(*batch_shape, device=generator.device, dtype=torch.long)
     # Add appropriate error handling code
                     torch.ones(*batch_shape, device=generator.device).bool(),
                     torch.arange(0, batch_shape[1], device=generator.device)
-                        .unsqueeze(0)
-                        .long(),
-                    temperature=0.9,
-                    topk=50,
-                )
 try:
-try:
+    # Existing code
+    .unsqueeze(0)
+    temperature=0.9,
     end_event.record()
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
     torch.cuda.synchronize()
 except Exception as e:
 try:
