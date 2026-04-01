@@ -110,10 +110,13 @@ print(supported_formats)
 
 import argparse
 
+import argparse
+
 if __name__ == "__main__":
     try:
         parser = argparse.ArgumentParser(description="Convert audio files between formats with optional modifications")
         parser.add_argument("input_file", help="Path to the input audio file")
+    except Exception
     except Exception
     parser.add_argument("-o", "--output", help="Path to the output audio file")
     parser.add_argument("-f", "--format", help="Output format (wav, mp3, ogg, flac, etc.)")
