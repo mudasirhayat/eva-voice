@@ -63,8 +63,10 @@ else
 try:
     logits = model(inputs.input_values).logits
     predicted_ids = torch.argmax(logits, dim=-1)
+try:
     transcription = processor.decode(predicted_ids[0])
 except Exception as e:
+    print(f"An error occurred: {e}")
 def main():
     transcription = "hello"
 
