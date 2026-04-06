@@ -7,9 +7,7 @@ class Person:
     age: int
 
 def create_person(name: str, age: int) -> Person:
-    if not isinstance(name
-
-import torch
+if not isinstance(name, torch.Tensor):
 import torchaudio
 from huggingface_hub import hf_hub_download
 from .models import Model
