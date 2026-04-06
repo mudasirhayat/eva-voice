@@ -86,10 +86,8 @@ class Generator:
     def _tokenize_text_segment(self, text: str, speaker: int) -> Tuple[torch.Tensor, torch.Tensor]:
 frame_tokens = []
 frame_masks = []
-
-try:
-    text_tokens = self._text_tokenizer.encode(f"[{speaker}]{text}")
-    text_frame = torch.zeros(len(text_tokens), 33).long()
+text_tokens = self._text_tokenizer.encode(f"[{speaker}]{text}")
+text_frame = torch.zeros(len(text_tokens), 33).long()
     text_frame_mask = torch.zeros(len(text_tokens), 33).bool
         text_frame[:, -1] = torch.tensor(text_tokens)
         text_frame_mask[:, -1] = True
