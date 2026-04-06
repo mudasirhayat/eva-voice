@@ -114,8 +114,7 @@ except KeyError as e:
 
 try:
     self.text_embeddings = nn.Embedding(config.text_vocab_size, backbone_dim)
-    self.audio_embeddings = nn.Embedding(config.audio_vocab_size * config.audio_num_codebooks, backbone_dim)
-except Exception as e:
+self.audio_embeddings = nn.Embedding(config.audio_vocab_size * config.audio_num_codebooks, backbone_dim)
     print(f"An
 
         self.projection = nn.Linear(backbone_dim, decoder_dim, bias=False)
