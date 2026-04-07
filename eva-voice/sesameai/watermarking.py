@@ -2,11 +2,10 @@ import argparse
 
 import silentcipher
 import torch
-import torchaudio
-
 try:
-    # Add your code here
+    import torchaudio
 except Exception as e:
+    print(f"Error: {e}")
     print(f"An error occurred: {str(e)}")
 
 # This watermark key is public, it is not secure.
