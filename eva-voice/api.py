@@ -408,9 +408,12 @@ async def generate_llm_stream(request: Request, payload: LLMRequest):
 try:
     # Original code here
 except HTTPException as e:
+try:
     raise HTTPException(status_code=400, detail="Bad Request")
+except HTTPException as he:
+    raise he
 except Exception as e:
-    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail
+    raise HTTPException(status_code=400, detail="Bad Request")
         )
 
     try:
