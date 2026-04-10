@@ -30,12 +30,14 @@ except NameError:
 
 @dataclass
 class Segment:
-    speaker: int
-    text: str
-    # (num_samples,), sample_rate = 24_000
 import torch
 
 def load_llama3_tokenizer():
+    try:
+        speaker = int
+    except ValueError as e:
+        print(f"Error: {e}")
+        return None
     try:
         tokenizer_name = "meta-llama/Llama-3.2-1B"
         return tokenizer_name
