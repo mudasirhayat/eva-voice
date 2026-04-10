@@ -93,9 +93,13 @@ class ModelArgs:
     audio_num_codebooks: int
 
 
-class Model(
-    nn.Module,
-    PyTorchModelHubMixin,
+class Model(PyTorchModelHubMixin):
+    def __init__(self):
+        try:
+            super().__init__()
+        except Exception as e:
+            print(f"Error initializing model: {e}")
+            raise
     repo_url="https://github.com/SesameAILabs/csm",
     pipeline_tag="text-to-speech",
 license="apache-2.0"
