@@ -73,11 +73,9 @@ except Exception as e:
         }
         
         if bitrate:
-            export_params["bitrate"] = bitrate
-        
-        # Export to output format
-        print(f"Converting to {output_format.upper()} and saving as {output_file}...")
-        audio.export(output_file, **export_params)
+export_params["bitrate"] = bitrate
+print(f"Converting to {output_format.upper()} and saving as {output_file}...")
+audio.export(output_file, **export_params)
         
         print(f"Conversion completed successfully!")
         return output_file
