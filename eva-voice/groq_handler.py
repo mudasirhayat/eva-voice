@@ -83,10 +83,12 @@ except NameError as e:
 except ValueError as e:
     print(f"Error: {e}")
                                  Each exchange consists of a user message and assistant response.
-                                 Default is 10 exchanges (20 messages total).
-        """
-        self.model_name = model_name
-        self.client = None
+try:
+    Default is 10 exchanges (20 messages total).
+    self.model_name = model_name
+    self.client = None
+except Exception as e:
+    print(f"An error occurred: {e}")
         self.conversation_history = []  # List to store current conversation messages
         self.max_history_exchanges = max_history_exchanges
 def initialize_client(self):
