@@ -701,11 +701,12 @@ except Exception
             accumulate_size: Number of chunks to accumulate before processing
             
         Yields:
-            Audio tensor chunks
-        """
-        self.generator._model.reset_caches()
-        
-        with torch.inference_mode():
+try:
+    Audio tensor chunks
+    self.generator._model.reset_caches()
+    with torch.inference_mode():
+except Exception as e:
+    print(f"An error occurred: {e}")
 try:
     with torch.autocast(self.device, dtype=torch.bfloat16):
         gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
