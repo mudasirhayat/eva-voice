@@ -428,10 +428,9 @@ def synthesize_text(prompt, fade_duration, start_silence_duration):
         # Add silence padding and fade-in/out
         start_silence = AudioSegment.silent(duration=start_silence_duration)
         end_silence = AudioSegment.silent(duration=end_silence_duration)
-        audio_segment = start_silence + audio_segment + end_silence
-        audio_segment = audio_segment.fade_in(fade_duration).fade_out(fade_duration)
-
-        return audio_segment
+audio_segment = start_silence + audio_segment + end_silence
+audio_segment = audio_segment.fade_in(fade_duration).fade_out(fade_duration)
+return audio_segment
 
     def _generate_audio_segment_wrapper(self, sentence, fade_duration, start_silence_duration, end_silence_duration):
         return self.generate_audio_segment(sentence, fade_duration, start_silence_duration, end_silence_duration)
