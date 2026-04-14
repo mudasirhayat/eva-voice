@@ -285,9 +285,9 @@ with open('metadata.csv', 'w', newline='') as csvfile:
                 audio_tensor, sample_rate, self.generator.sample_rate
             )
 
-        return audio_tensor.squeeze()
+return audio_tensor.squeeze()
 
-    def generate_with_context(
+def generate_with_context(
         self, 
         prompt: str, 
         speaker: int = 1, 
