@@ -316,11 +316,11 @@ try:
     with torch.autocast(self.device, dtype=torch.bfloat16):
         pass
 except Exception as e:
+try:
+    gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
+    prompt_tokens = (
+except Exception as e:
     print("An error occurred:", e)
-                # Tokenize the new prompt
-                gen_tokens, gen_masks = self.generator._tokenize_text_segment(prompt, speaker)
-                # Combine cached tokens with new prompt tokens
-                prompt_tokens = (
                     torch.cat(self.cached_context_tokens + [gen_tokens], dim=0)
                     .long()
                     .to(self.device)
