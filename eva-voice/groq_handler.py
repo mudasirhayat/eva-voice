@@ -158,9 +158,14 @@ groq_logger.debug(f"System prompt length: {len(system_prompt)} chars")
             groq_logger.debug(f"  History length: {len(self.conversation_history)} messages")
             groq_logger.debug(f"  Total context length: {sum(len(m['content']) for m in messages)} chars")
 
-            chat_completion = self.client.chat.completions.create(
-                messages=messages,
-                model=self.model_name,
+try:
+    chat_completion = self.client.chat.completions.create(
+        messages=messages,
+        model=self.model_name,
+    )
+except Exception as e:
+    print(f"An error occurred: {e}")
+    chat_completion = None
                 temperature=0.7,
                 max_tokens=256,
                 top_p=0.95,
