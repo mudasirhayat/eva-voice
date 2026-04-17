@@ -163,10 +163,8 @@ if wav_size is not None and current_size >= wav_size:
                         wav_buffer = io.BytesIO(complete_wav)
                         audio_segment = AudioSegment.from_wav(wav_buffer)
                         logger.info(f"Playing audio segment (duration: {len(audio_segment)/1000:.2f}s)")
-                        play_with_logging(audio_segment)
-                        
-                        # Keep any remaining data for the next WAV file
-                        remaining_data = wav_data.read()
+play_with_logging(audio_segment)
+remaining_data = wav_data.read()
                         wav_data = io.BytesIO(remaining_data)
                         wav_size = None
                         
