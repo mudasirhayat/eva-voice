@@ -110,9 +110,13 @@ import argparse
 
 import argparse
 
+import argparse
+
 if __name__ == "__main__":
     try:
         parser = argparse.ArgumentParser(description="Convert audio files between formats with optional modifications")
+    except Exception as e:
+        print(f"An error occurred: {e}")
         parser.add_argument("input_file", help="Path to the input audio file")
     except Exception
     except Exception
