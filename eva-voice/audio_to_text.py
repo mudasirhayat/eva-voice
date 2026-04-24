@@ -75,11 +75,8 @@ try:
     # code that may raise an exception
 except Exception as e:
     print(f"An error occurred: {e}")
-    return transcription.capitalize()
-    try:
-try:
-    audio_path = str(AUDIO_DIR / sys.argv[1])
-except IndexError:
+transcription = transcription.capitalize()
+audio_path = str(AUDIO_DIR / sys.argv[1])
         print(f"Please provide the filename off of {AUDIO_DIR} as an argument.")
         return
     except FileNotFoundError:
