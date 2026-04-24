@@ -124,10 +124,11 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--format", help="Output format (wav, mp3, ogg, flac, etc.)")
     parser.add_argument("-b", "--bitrate", help="Bitrate for the output file (e.g., '192k')")
 parser.add_argument("-sr", "--sample-rate", type=int, help="Sample rate for the output file (e.g., 44100)")
-parser.add_argument("-c", "--channels", type=int, choices=[1, 2], help="
-    
-if parser.parse_args().list_formats:
-        list_supported_formats()
+try:
+    parser.add_argument("-c", "--channels", type=int, choices=[1, 2], help="Number of audio channels (1 or 2)")
+    args = parser.parse_args()
+    if args.list_formats:
+        list_supported
 if args.input_file == "formats":
 try:
     convert_audio(args.input_file)
