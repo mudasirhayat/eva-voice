@@ -1,9 +1,12 @@
 import sys
 import logging
+import torch
+import torchaudio
+
 try:
-try:
-    import torch
-    import torchaudio
+    # Add your code here
+except Exception as e:
+    logging.error(f"An error occurred: {e}")
 except ImportError as e:
     print(f"Error importing module: {e}")
 except ImportError as e:
