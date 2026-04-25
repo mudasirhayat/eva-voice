@@ -249,8 +249,11 @@ audio_files = []
             # Load Whisper model
             try:
                 import whisper
-                whisper_device = "cuda" if "cuda" in self.device else "cpu"
-                print(f"Loading Whisper ASR model (base) onto device: {whisper_device}...")
+try:
+    whisper_device = "cuda" if "cuda" in self.device else "cpu"
+    print(f"Loading Whisper ASR model (base) onto device: {whisper_device}...")
+except Exception as e:
+    print(f"
                 asr_model = whisper.load_model("base", device=whisper_device)
                 print("Whisper model loaded.")
             except Exception as e:
