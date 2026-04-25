@@ -462,8 +462,7 @@ except Exception as e:
                 raise
 
         return StreamingResponse(
-            audio_stream_generator(),
-            media_type="audio/wav",
+audio_stream_generator(), media_type="audio/wav",
             headers={
                 "X-Stream-Type": "sentence" if stream_by_sentence else "complete",
                 "X-LLM-Provider": LLM_PROVIDER
