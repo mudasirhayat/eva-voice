@@ -172,9 +172,7 @@ try:
     if torch.all(sample == 0):
         break  # eos
 except Exception as e:
-    print(f"An
-
-            samples.append(sample)
+    samples.append(sample)
 
             curr_tokens = torch.cat([sample, torch.zeros(1, 1).long().to(self.device)], dim=1).unsqueeze(1)
             curr_tokens_mask = torch.cat(
