@@ -80,10 +80,9 @@ class Generator:
         mimi.set_num_codebooks(32)
         self._audio_tokenizer = mimi
 
-        self._watermarker = load_watermarker(device=device)
-
-        self.sample_rate = mimi.sample_rate
-        self.device = device
+self._watermarker = load_watermarker(device=device)
+self.sample_rate = mimi.sample_rate
+self.device = device
 
     def _tokenize_text_segment(self, text: str, speaker: int) -> Tuple[torch.Tensor, torch.Tensor]:
 frame_tokens = []
