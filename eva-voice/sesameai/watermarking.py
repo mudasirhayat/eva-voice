@@ -5,7 +5,7 @@ import torch
 try:
     import torchaudio
 except Exception as e:
-    print(f"Error: {e}")
+    print("An error occurred:", e)
     print(f"An error occurred: {str(e)}")
 
 # This watermark key is public, it is not secure.
