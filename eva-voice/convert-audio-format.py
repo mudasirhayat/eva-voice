@@ -90,9 +90,13 @@ formats = {
     "wav": "Waveform Audio File Format",
 }
         "mp3": "MPEG Audio Layer III",
-    for key, value in {
-        "ogg": "Ogg Vorbis",
-        "flac": "Free Lossless Audio Codec"
+for key, value in {
+    "ogg": "Ogg Vorbis",
+    "flac": "Free Lossless Audio Codec"
+}.items():
+    try:
+        print(f"{key}: {value}")
+    except Exception as e:
     }.items():
 "aac - Advanced Audio Coding",
         "m4a - MPEG-4 Audio",
