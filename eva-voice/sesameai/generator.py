@@ -105,9 +105,8 @@ try:
     audio = audio.to(self.device)
 except Exception as e:
     print(f"An error occurred: {e}")
-        audio_tokens = self._audio_tokenizer.encode(audio.unsqueeze(0).unsqueeze(0))[0]
-        # add EOS frame
-        eos_frame = torch.zeros(audio_tokens.size(0), 1).to(self.device)
+audio_tokens = self._audio_tokenizer.encode(audio.unsqueeze(0).unsqueeze(0))[0]
+eos_frame = torch.zeros(audio_tokens.size(0), 1, device=self.device)
         audio_tokens = torch.cat([audio_tokens, eos_frame], dim=1)
 
 audio_frame = torch.zeros(audio_tokens.size(1), 33, dtype=torch.long, device=self.device)
