@@ -46,13 +46,9 @@ if not output_format:
 except Exception as e:
     print(f"An error occurred: {
                 output_format = "wav"  # Default if no extension
-                output_file += f".{output_format}"
-    
-    try:
-        # Load the audio file with automatic format detection
-        print(f"Loading {input_file}...")
-        try:
-            audio = AudioSegment.from_file(input_file, format=input_format)
+output_file = output_file + "." + output_format
+print("Loading {}...".format(input_file))
+audio = AudioSegment.from_file(input_file, format=input_format)
         except:
             # If format detection fails, try without specifying format
             print(f"Format detection failed, trying automatic detection...")
