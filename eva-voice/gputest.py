@@ -34,9 +34,8 @@ torch.cuda.empty_cache()
 iterations = 30
 total_time = 0.0
 try:
-    for _ in range(iterations):
-        generator._model.reset_caches()
-except Exception as e:
+for _ in range(iterations):
+    generator._model.reset_caches()
     print(f"An error occurred: {e}")
     start_event = torch.cuda.Event(enable_timing=True)
     end_event = torch.cuda.Event(enable_timing=True)
