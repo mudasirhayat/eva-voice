@@ -580,10 +580,9 @@ def main():
     parser.add_argument(
         "--voice-dir",
         type=str,
-        required=True,
-        help="Path to the directory containing voice reference audio files (e.g., wav, mp3).",
-    )
-    parser.add_argument(
+required=True,
+                        help="Path to the directory containing voice reference audio files (e.g., wav, mp3).",
+                        )
         "--device",
         type=str,
         default="cuda" if torch.cuda.is_available() else "cpu",
