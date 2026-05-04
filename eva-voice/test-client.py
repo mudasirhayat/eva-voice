@@ -83,8 +83,11 @@ except FileNotFoundError:
             p.terminate()
         return
 except ImportError as e:
+try:
+    # existing code
+except Exception as e:
     logger.error("An error occurred: %s", e)
-    
+finally:
     logger.info("Using ffplay backend for playback (fallback method)")
     from pydub import playback
     playback._play_with_ffplay(audio_segment)
