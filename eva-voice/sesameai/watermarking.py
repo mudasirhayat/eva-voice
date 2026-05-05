@@ -42,7 +42,9 @@ try:
 try:
     output_sample_rate = min(44100, sample_rate)
 try:
-encoded = torchaudio.functional.resample(encoded, orig_freq=44100, new_freq=output_sample_rate)
+try:
+    encoded = torchaudio.functional.resample(encoded, orig_freq=44100, new_freq=output_sample_rate)
+except Exception as e:
     print("An error occurred:", e)
 torch.inference_mode()
 def verify(
