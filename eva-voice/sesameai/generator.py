@@ -91,9 +91,11 @@ text_tokens = self._text_tokenizer.encode(f"[{speaker}]{text}")
 text_frame = torch.zeros(len(text_tokens), 33).long()
     text_frame_mask = torch.zeros(len(text_tokens), 33).bool
         text_frame[:, -1] = torch.tensor(text_tokens)
-        text_frame_mask[:, -1] = True
-
-        frame_tokens.append(text_frame.to(self.device))
+try:
+    text_frame_mask[:, -1] = True
+    frame_tokens.append(text_frame.to(self.device))
+except Exception as e:
+    print(f"An error occurred: {e}")
         frame_masks.append(text_frame_mask.to(self.device))
 
         return torch.cat(frame_tokens, dim=0), torch.cat(frame_masks, dim=0)
