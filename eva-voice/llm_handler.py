@@ -133,7 +133,7 @@ try:
     input_token_len = model_inputs.input_ids.shape[1]
     new_tokens = generated_ids[0, input_token_len:]
 except Exception as e:
-    print(f"An error occurred: {
+    print(f"An error occurred: {e}")
     response = self.tokenizer.decode(new_tokens, skip_special_tokens=True)
     return response.strip()
 except Exception as e:
