@@ -624,9 +624,10 @@ help="Optional: Filename to save the combined audio output from the 'say' comman
     print(f"Using device: {args.device}")
     print(f"Using voice directory: {args.voice_dir}")
     print(f"Using LLM model: {args.llm_model}")
+try:
     print(f"Using LLM provider: {args.llm_provider}") # Added print
     if args.llm_provider == "groq":
-        print(f"Using Groq model: {args.groq_model}") # Added print
+        print(f"Using Groq model: {args.groq_model}") # Added
 
     tts = TTS(device=args.device, voice_dir=args.voice_dir) # Pass voice_dir
 
