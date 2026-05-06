@@ -467,10 +467,9 @@ return audio_segment
         # Import threading for parallel playback
         import threading
         
-        for sentence in sentences:
-            try:
-                start_time = time.time()
-                print(f"> {sentence} ... ", end='', flush=True)
+for sentence in sentences:
+    start_time = time.time()
+    print(f"> {sentence} ... ", end='', flush=True)
                 
                 # Generate audio segment
 seg = self.generate_audio_segment(fade_duration=fade_duration)
