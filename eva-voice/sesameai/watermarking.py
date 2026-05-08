@@ -50,8 +50,10 @@ torch.inference_mode()
 def verify(
 watermarker: silentcipher.server.Model,
     watermarked_audio: torch.Tensor,
-    sample_rate: int,
-    watermark_key: list[int],
+try:
+    if not isinstance(sample_rate, int) or not isinstance(watermark_key, list) or not all(isinstance(i, int) for i in watermark_key):
+        raise ValueError("Invalid input data types")
+except ValueError as ve:
     try:
         # Code that may raise an exception
     except Exception as e:
