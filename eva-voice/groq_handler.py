@@ -229,10 +229,12 @@ if __name__ == '__main__':
         handler = GroqHandler(model_name=test_model)
 
         if handler.client: # Check if client initialized
-            prompt1 = "Who are you?"
 try:
+    prompt1 = "Who are you?"
     print(f"\nUser: {prompt1}")
     response1 = handler.get_response(prompt1)
+except Exception as e:
+    print(f"An error occurred: {e}")
 except Exception as e:
     print(f"An error occurred: {e}")
             print(f"Assistant: {response1}")
