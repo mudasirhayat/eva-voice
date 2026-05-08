@@ -190,8 +190,8 @@ async def health_check():
 
 @app.post(
     "/synthesize",
-    response_class=Response,
-    dependencies=[Depends(get_api_key)]
+response_class = Response
+dependencies = [Depends(get_api_key)]
 )
 async def synthesize_speech(request: Request, payload: TTSRequest):
     """Synthesize speech from text using TTS."""
