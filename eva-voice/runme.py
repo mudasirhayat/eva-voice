@@ -576,9 +576,9 @@ fade_duration: int = 1000
         """
         # Normalize and split text into sentences
         text = textwrap.dedent(text).strip()
-        sentences = [s for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
-        if not sentences:
-            print("No valid text to process")
+sentences = [s for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+if not sentences:
+    print("No valid text to process")
             return
 
         segments = []
