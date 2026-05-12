@@ -154,8 +154,12 @@ except Exception as e:
 
         # --- Cache miss or invalid cache: Generate context ---
         print(f"Scanning {self.voice_dir} for audio files...")
-        audio_files = []
-        for ext in supported_audio_extensions:
+try:
+            audio_files = []
+            for ext in supported_audio_extensions:
+                # Code to find audio files with the given extension
+except Exception as e:
+            print(f"An error occurred: {e}")
             audio_files.extend(voice_path.glob(ext))
         
         if not audio_files:
