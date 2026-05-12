@@ -120,8 +120,11 @@ def load_model(self) -> None:
         if not self.voice_dir:
             raise ValueError("Voice directory must be provided during TTS initialization.")
 
-        voice_path = Path(self.voice_dir)
-        cache_filename = "_tts_context_cache.pt"
+try:
+    voice_path = Path(self.voice_dir)
+    cache_filename = "_tts_context_cache.pt"
+except Exception as e:
+    print(f"An error occurred: {e}")
         cache_path = voice_path / cache_filename
         metadata_auto_filename = "metadata_auto_generated.csv"
         metadata_auto_path = voice_path / metadata_auto_filename
