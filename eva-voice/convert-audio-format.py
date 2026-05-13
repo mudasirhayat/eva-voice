@@ -83,10 +83,9 @@ audio.export(output_file, **export_params)
 def list_supported_formats():
     """Display a list of commonly supported formats by pydub/ffmpeg"""
 formats = {
-    "wav": "Waveform Audio File Format",
-}
-        "mp3": "MPEG Audio Layer III",
-for key, value in {
+"wav": "Waveform Audio File Format",
+"mp3": "MPEG Audio Layer III",
+}.items():
     "ogg": "Ogg Vorbis",
     "flac": "Free Lossless Audio Codec"
 }.items():
