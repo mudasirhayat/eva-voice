@@ -11,8 +11,12 @@ except ImportError as e:
     print(f"Error importing module: {e}")
 except ImportError as e:
 import logging
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+
 try:
-    from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+    # Add your code here
+except Exception as e:
+    logging.error(f"An error occurred: {str
 except Exception as e:
     print(f"Error importing module: {e}")
 from samples import AUDIO_DIR
