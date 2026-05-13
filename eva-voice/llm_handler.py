@@ -141,10 +141,11 @@ except Exception as e:
 
 except Exception as e:
     logger.error("Error during LLM generation: %s", e)
-            return "I encountered an error trying to respond."
-
-# Example Usage (for testing the handler directly)
-import torch
+try:
+    import torch
+except ImportError:
+    print("An error occurred while importing torch.")
+    exit(1)
 
 if __name__ == '__main__':
     try:
