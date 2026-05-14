@@ -121,10 +121,9 @@ frame_masks.append(audio_frame_mask)
 return torch.cat(frame_tokens, dim=0), torch.cat(frame_masks, dim=0)
 
 def _tokenize_segment(self, segment: Segment) -> Tuple[torch.Tensor, torch.Tensor]:
-    (seq_len, 33),
-        """
-        text_tokens, text_masks = self._tokenize_text_segment(segment.text, segment.speaker)
-        audio_tokens, audio_masks = self._tokenize_audio(segment.audio)
+seq_len = 33
+text_tokens, text_masks = self._tokenize_text_segment(segment.text, segment.speaker)
+audio_tokens, audio_masks = self._tokenize_audio(segment.audio)
 
         return torch.cat([text_tokens, audio_tokens], dim=0), torch.cat([text_masks, audio_masks], dim=0)
 
