@@ -93,8 +93,16 @@ finally:
     playback._play_with_ffplay(audio_segment)
 
 def patch_audio_playback():
-    """Patch pydub playback to properly clean up temp files (from runme.py)."""
-    from pydub import playback
+import atexit
+import os
+import tempfile
+from pydub import playback
+
+def cleanup_temp_files(temp_files):
+    for temp_file in temp_files:
+        try:
+            os.remove(temp_file)
+        except Exception as e:
     
     def patched_play_with_ffplay(seg):
         """Enhanced playback function that properly cleans up temporary files."""
