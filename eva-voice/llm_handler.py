@@ -46,9 +46,9 @@ except Exception as e:
                 )
                 self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
                 # Check if tokenizer has pad_token, add if necessary (common for generation)
-                if self.tokenizer.pad_token is None:
-                    # Common practice: Use eos_token as pad_token if available
-                    if self.tokenizer.eos_token:
+if self.tokenizer.pad_token is None:
+    if self.tokenizer.eos_token:
+        raise ValueError("Both pad_token and eos_token must be set in the tokenizer")
 try:
     self.tokenizer.pad_token = self.tokenizer.eos_token
 except AttributeError:
