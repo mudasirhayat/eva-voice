@@ -188,8 +188,11 @@ remaining_data = wav_data.read()
             if wav_data.tell() > 0:
                 try:
                     wav_data.seek(0)
-                    audio_segment = AudioSegment.from_wav(wav_data)
-                    logger.info(f"Playing final audio segment (duration: {len(audio_segment)/1000:.2f}s)")
+try:
+    audio_segment = AudioSegment.from_wav(wav_data)
+    logger.info(f"Playing final audio segment (duration: {len(audio_segment)/1000:.2f}s)")
+except Exception as e:
+    logger.error
                     play_with_logging(audio_segment)
                 except Exception as e:
                     logger.warning(f"Error processing final WAV chunk: {e}")
