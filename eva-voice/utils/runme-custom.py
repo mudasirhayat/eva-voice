@@ -231,8 +231,9 @@ for audio_path in audio_files:
         # 4. Save Cache
         print(f"Saving context cache for {len(self.cached_context_tokens)} segments to: {cache_path}")
         try:
-            cache_data = {
-                'tokens': self.cached_context_tokens,
+cache_data = {
+    'tokens': self.cached_context_tokens,
+}
 try:
     cache_data = {
         'context': self.cached_context,
