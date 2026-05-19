@@ -20,8 +20,11 @@ class LLMHandler:
         self.model_name = model_name
         self.device = device
         self.model = None
-        self.tokenizer = None
-        self._load_model()
+try:
+    self.tokenizer = None
+    self._load_model()
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 def _load_model(self):
     try:
