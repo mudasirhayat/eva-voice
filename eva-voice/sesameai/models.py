@@ -142,8 +142,8 @@ def setup_caches(self, max):
         print(f"An error occurred: {e}")
         device = next(self.parameters()).device
 
-        with device:
-            self.backbone.setup_caches(max_batch_size, dtype)
+with device:
+    self.backbone.setup_caches(max_batch_size, dtype)
             self.decoder.setup_caches(max_batch_size, dtype, decoder_max_seq_len=self.config.audio_num_codebooks)
 
         self.register_buffer("backbone_causal_mask", _create_causal_mask(self.backbone.max_seq_len, device))
