@@ -232,8 +232,11 @@ print("Type 'exit' to end the conversation.")
                 if not user_input:
                     continue
                     
-                if user_input.lower() == 'exit':
-                    print("\nEnding conversation.")
+try:
+    if user_input.lower() == 'exit':
+        print("\nEnding conversation.")
+except Exception as e:
+    print(f"An error occurred: {e}")
                     break
                 
                 # Stream response from API
