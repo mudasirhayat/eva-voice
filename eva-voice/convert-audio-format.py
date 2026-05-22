@@ -35,10 +35,10 @@ def convert_audio(input_file, output_file, bitrate=None, sample_rate=None):
     if output_file is None:
         if output_format is None:
             output_format = "wav"  # Default output format
-        output_file = os.path.splitext(input_file)[0] + f".{output_format}"
-    else:
-        # Extract format from output file if not explicitly provided
-        if output_format is None:
+if output_format is None:
+    output_file = os.path.splitext(input_file)[0]
+else:
+    output_file = os.path.splitext(input_file)[0] + f".{output_format}"
 try:
     output_format = os.path.splitext(output_file)[1][1:].lower()
 if not output_format:
