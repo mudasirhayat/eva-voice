@@ -78,8 +78,8 @@ except FileNotFoundError:
     print("File not
                 stream.write(chunk._data)
         finally:
-            stream.stop_stream()
-            stream.close()
+stream.stop_stream()
+stream.close()
             p.terminate()
         return
 except ImportError as e:
