@@ -358,10 +358,10 @@ segments = []
             for segment in segments:
                 tokens, masks = self.generator._tokenize_segment(segment)
                 self.cached_context_tokens.append(tokens)
-                self.cached_context_masks.append(masks)
-            print("Reference audio context prepared")
+self.cached_context_masks.append(masks)
+print("Reference audio context prepared")
 
-    def _load_audio(self, audio_path: str) -> torch.Tensor:
+def _load_audio(self, audio_path: str) -> torch.Tensor:
         """
         Load and preprocess audio file for model consumption.
         
