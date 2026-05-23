@@ -220,7 +220,11 @@ if not request.app.state.tts:
             # Process all sentences and concatenate
             audio_segments = []
             for sentence in sentences:
-                segment = request.app.state.tts.generate_audio_segment(sentence)
+                try:
+                    segment = request.app.state.tts.generate_audio_segment(sentence)
+                    audio_segments.append(segment)
+                except Exception as e:
+                    print(f"Error generating audio segment
                 audio_segments.append(segment)
             
             # Concatenate all segments
