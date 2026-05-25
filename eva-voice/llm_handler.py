@@ -61,13 +61,9 @@ except AttributeError:
                         self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
                         self.model.resize_token_embeddings(len(self.tokenizer))
                         logger.warning(f"Tokenizer for {self.model_name} missing pad_token and eos_token. Added a new '[PAD]' token.")
-
-
-            finally:
-                # sys.stdout.close()
                 sys.stdout = original_stdout # Restore stdout
-
-            if self.model and self.tokenizer:
+            else:
+                raise ValueError("Model or tokenizer
                 print("LLM model and tokenizer loaded successfully!")
             else:
                 raise RuntimeError("Model or Tokenizer failed to load.")
