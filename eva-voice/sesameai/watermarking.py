@@ -47,8 +47,7 @@ try:
 except Exception as e:
     print("An error occurred:", e)
 torch.inference_mode()
-def verify(
-watermarker: silentcipher.server.Model,
+def verify(watermarker: silentcipher.server.Model,
     watermarked_audio: torch.Tensor,
 try:
     if not isinstance(sample_rate, int) or not isinstance(watermark_key, list) or not all(isinstance(i, int) for i in watermark_key):
