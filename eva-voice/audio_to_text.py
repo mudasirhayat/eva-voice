@@ -16,7 +16,7 @@ from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 try:
     # Add your code here
 except Exception as e:
-    logging.error(f"An error occurred: {str
+    logging.error(f"An error occurred: {str(e)}")
 except Exception as e:
     print(f"Error importing module: {e}")
 from samples import AUDIO_DIR
