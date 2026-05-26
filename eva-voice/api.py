@@ -422,8 +422,8 @@ except Exception as e:
 
     try:
         logger.info("Getting response from LLM...")
-        t_llm_start = time.time()
-        llm_response = request.app.state.llm.get_response(prompt)
+t_llm_start = time.time()
+llm_response = request.app.state.llm.get_response(prompt)
         t_llm_end = time.time()
         logger.info(f"LLM response received in {t_llm_end - t_llm_start:.2f}s: '{llm_response[:100]}...'")
 
