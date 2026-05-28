@@ -131,8 +131,8 @@ def model(self):
         Args:
             user_prompt: The user's input message.
 def generate_response(system_prompt=None):
-    """
-    Generate a response based on the given system prompt.
+    # Generate a response based on the given system prompt.
+    pass
     
     Args:
         system_prompt (str): An optional system message to guide the assistant's behavior.
