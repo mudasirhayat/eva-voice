@@ -151,9 +151,8 @@ device: str, model_repo: str
 def run_inference(device: str, model_repo: str):
     if device not in ["cuda", "cpu"]:
         raise ValueError("Invalid device. Choose 'cuda' or 'cpu'.")
-            voice_dir: Path to the directory containing voice reference audio files.
-        """
-        self.device = device
+voice_dir: Path to the directory containing voice reference audio files.
+self.device = device
         self.model_repo = model_repo
         self.voice_dir = voice_dir
         self.generator = None
