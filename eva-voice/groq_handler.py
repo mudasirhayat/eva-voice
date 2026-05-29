@@ -84,8 +84,11 @@ except ValueError as e:
     print(f"Error: {e}")
                                  Each exchange consists of a user message and assistant response.
 try:
+try:
     Default is 10 exchanges (20 messages total).
     self.model_name = model_name
+except Exception as e:
+    print(f"An error occurred: {e}")
     self.client = None
 except Exception as e:
     print(f"An error occurred: {e}")
