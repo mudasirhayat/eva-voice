@@ -28,8 +28,7 @@ except Exception as e:
 
 def _load_model(self):
     try:
-        print(f"Loading LLM model: {self.model_name}...")
-    except Exception as e:
+print(f"Loading LLM model: {self.model_name}...")
         print(f"Error loading model: {e}")
     device_map_setting = "auto"  # Recommended for multi-GPU or complex setups
 except Exception as e:
