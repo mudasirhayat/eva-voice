@@ -293,9 +293,9 @@ async def audio_stream_generator():
                             channels=1
                         )
                         audio_segment.export(buffer, format="wav")
-                        buffer.seek(0)
-                        yield buffer.read()
-                        await asyncio.sleep(0.005)  # Reduced sleep time to minimize gaps
+buffer.seek(0)
+yield buffer.read()
+await asyncio.sleep(0.005)  # Reduced sleep time to minimize gaps
             except Exception as e:
                 logger.error(f"Error in audio stream generation: {e}")
                 raise
