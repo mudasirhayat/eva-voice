@@ -38,8 +38,11 @@ for _ in range(iterations):
     generator._model.reset_caches()
     print(f"An error occurred: {e}")
     start_event = torch.cuda.Event(enable_timing=True)
+try:
     end_event = torch.cuda.Event(enable_timing=True)
     start_event.record()
+except Exception as e:
+    print(f"An error occurred: {e}")
     with torch.inference_mode():
         with torch.autocast("cuda", dtype=torch.bfloat16):
 try:
