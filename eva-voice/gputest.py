@@ -55,8 +55,10 @@ try:
     temperature=0.9,
     end_event.record()
 except Exception as e:
-    print(f"An error occurred: {str(e)}")
+try:
     torch.cuda.synchronize()
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
 except Exception as e:
     elapsed_time_ms = start_event.elapsed_time(end_event)
     raise e
