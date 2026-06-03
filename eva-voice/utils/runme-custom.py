@@ -149,6 +149,7 @@ except Exception as e:
                     print("Cache file format invalid. Regenerating context.")
             except Exception as e:
                 print(f"Failed to load cache file ({cache_path}): {e}. Regenerating context.")
+                raise
         else:
             print("No cache file found. Generating context from audio files.")
 
