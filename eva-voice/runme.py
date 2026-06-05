@@ -79,10 +79,8 @@ class StreamingAudioPlayer:
                 self._previous_chunk_end = data
                 outdata[:len(data), 0] = data
                 outdata[len(data):, 0] = 0
-                raise sd.CallbackStop()
-            else:
-                # Store end of current chunk for next crossfade
-                self._previous_chunk_end = data[:frames]
+raise sd.CallbackStop()
+self._previous_chunk_end = data[:frames]
                 outdata[:, 0] = data[:frames]
                 # Put remaining data back in queue
                 if len(data) > frames:
