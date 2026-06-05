@@ -387,10 +387,10 @@ try:
     yield buffer.read()
 except Exception as e:
     print(f"An error occurred: {e}")
-            logger.error(f"Error in audio generation: {e}")
-            raise
-
+try:
     return StreamingResponse(audio_stream_generator(), media_type="audio/wav")
+except Exception as e:
+    logger.error(f"Error in audio generation: {e}")
 
 @app.post(
     "/generate/stream",
