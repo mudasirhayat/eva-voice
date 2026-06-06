@@ -109,8 +109,11 @@ self._previous_chunk_end = data[:frames]
         if not self.stop_flag:
             # Ensure audio is float32 and normalize carefully
             audio_chunk = audio_chunk.to(torch.float32)
-            if audio_chunk.dim() > 1:
-                audio_chunk = audio_chunk.squeeze()
+try:
+    if audio_chunk.dim() > 1:
+        audio_chunk = audio_chunk.squeeze()
+except Exception as e:
+    print(f"An error occurred: {e}")
             
             # Normalize with epsilon to prevent division by zero
             audio_chunk = audio_chunk / max(audio_chunk.abs().max().item(), 1e-6)
