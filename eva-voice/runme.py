@@ -841,8 +841,8 @@ if wm_sample_rate != self.generator.sample_rate:
         self,
         text: str,
         chunk_size: int = 20,
-        temperature: float = 0.9,
-        topk: int = 50
+temperature: float = 0.9
+topk: int = 50
     ) -> None:
         """
         Generate and play audio in a streaming fashion.
