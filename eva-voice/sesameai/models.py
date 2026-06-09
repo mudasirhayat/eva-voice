@@ -136,7 +136,8 @@ except Exception as e:
 def setup_caches(self, max):
     try:
         dtype = next(self.parameters()).dtype
-    except StopIteration:
+    except StopIteration as e:
+        print(f"Error: {e}")
         print("No parameters found")
     except Exception as e:
         print(f"An error occurred: {e}")
