@@ -102,8 +102,15 @@ def load_model(self) -> None:
                 self.generator = load_csm_1b(self.device)
             finally:
                 # Restore stdout
-                sys.stdout.close()
-                sys.stdout = original_stdout
+try:
+    sys.stdout.close()
+except Exception as e:
+    print(f"Error while closing stdout: {e}")
+
+try:
+    sys.stdout = original_stdout
+except Exception as e:
+    print(f"Error while restoring stdout:
                 
             print("\nModel loaded successfully!")
             
