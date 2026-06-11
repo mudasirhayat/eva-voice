@@ -38,10 +38,11 @@ except Exception as e:
             original_stdout = sys.stdout
             # sys.stdout = open(os.devnull, 'w')
             try:
-                self.model = AutoModelForCausalLM.from_pretrained(
 try:
-    self.model = torch.load(self.model_name)
+    self.model = AutoModelForCausalLM.from_pretrained(self.model_name)
 except FileNotFoundError:
+    print("Model file not found. Please check the file path.")
+    # Handle the error as needed, e.g.,
     print("Model file not found.")
 except Exception as e:
     print(f"An error occurred: {e}")
