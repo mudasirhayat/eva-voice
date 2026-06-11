@@ -213,8 +213,8 @@ for audio_path in audio_files:
                 print("[OK]")
 
             except Exception as e:
-                logger.error(f"Failed to process {audio_path.name}: {e}")
-                print(f"[Error: {e}]")
+logger.error(f"Failed to process {audio_path.name}: {e}")
+logger.error(f"[Error: {e}]")
 
         if not segments_to_process:
              raise ValueError(f"Could not successfully process any audio files from {self.voice_dir}. Check logs for errors.")
