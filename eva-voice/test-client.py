@@ -99,10 +99,8 @@ import tempfile
 from pydub import playback
 
 def cleanup_temp_files(temp_files):
-    for temp_file in temp_files:
-        try:
-            os.remove(temp_file)
-except Exception as e:
+for temp_file in temp_files:
+    os.remove(temp_file)
 
 def patched_play_with_ffplay(seg):
     """Enhanced playback function that properly cleans up temporary files."""
