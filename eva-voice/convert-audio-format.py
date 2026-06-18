@@ -16,9 +16,8 @@ def convert_audio(input_file, output_file, bitrate=None, sample_rate=None):
     try:
         # Code for converting audio
         pass
-    except Exception as e:
-print(f"An error occurred: {e}")
-channels (int, optional): Number of audio channels (1 for mono, 2 for stereo)
+except Exception as e:
+    print(f"An error occurred: {e}")
     
     Returns:
         str: Path to the output audio file
