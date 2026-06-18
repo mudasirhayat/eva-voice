@@ -261,11 +261,14 @@ except Exception as e:
                 print("Whisper model loaded.")
             except Exception as e:
                 print(f"Fatal Error: Failed to load Whisper ASR model: {e}")
-                print("Please ensure 'openai-whisper' is installed ('pip install -U openai-whisper')")
-                raise
+try:
+    import openai_whisper
+except ImportError:
+    print("Please ensure 'openai-whisper' is installed ('pip install -U openai-whisper')")
+    exit()
 
-            segments_to_process = []
-            generated_metadata = []
+segments_to_process = []
+generated_metadata = []
             
             for audio_path in audio_files:
                 print(f"Processing: {audio_path.name} ...", end=" ", flush=True)
