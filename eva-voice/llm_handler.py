@@ -82,11 +82,11 @@ print("4. Ensure you have accepted any necessary licenses or gate access on Hugg
 print("5. Verify that CUDA drivers and PyTorch are compatible if using CUDA.")
             print("Continuing without LLM functionality...")
 self.model = None
-self.tokenizer = None
-
-def get_response(self, user_prompt: str, system_prompt: str = "You are a helpful assistant.") -> str:
-        """
-        Generates a response from the LLM based on user input and a system prompt.
+try:
+    response = self.llm.generate_response(user_prompt, system_prompt)
+    return response
+except Exception as e:
+    return f"An error occurred: {str(e)}"
 
         Args:
             user_prompt: The user's input message.
