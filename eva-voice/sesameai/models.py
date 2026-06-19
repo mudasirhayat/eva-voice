@@ -74,8 +74,11 @@ logits /= temperature
 except ZeroDivisionError as e:
     print(f"Error: {e}")
 
+try:
     filter_value: float = -float("Inf")
     indices_to_remove = logits < torch.topk(logits, topk)[0][..., -1, None]
+except Exception as e:
+    print(f"An error
     scores_processed = logits.masked_fill(indices_to_remove, filter_value)
     scores_processed = torch.nn.functional.log_softmax(scores_processed, dim=-1)
     probs = torch.nn.functional.softmax(scores_processed, dim=-1)
