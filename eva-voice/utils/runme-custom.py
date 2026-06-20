@@ -455,8 +455,11 @@ return audio_segment
         self, 
         text: str, 
         output_filename: Optional[str] = "combined_output.wav", 
-        fallback_duration: int = 1000, 
-        fade_duration: int = 500, 
+try:
+    fallback_duration: int = 1000
+    fade_duration: int = 500
+except ValueError as e:
+    print(f"Error: {e}")
         start_silence_duration: int = 500, 
         end_silence_duration: int = 100
     ) -> None:
