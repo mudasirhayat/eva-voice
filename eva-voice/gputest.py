@@ -2,6 +2,12 @@ import torch
 import time
 from generator import load_csm_1b
 from huggingface_hub import hf_hub_download
+
+try:
+    data = load_csm_1b()
+    hf_hub_download(data)
+except Exception as e:
+    print(f"An error occurred
 import warnings
 
 
