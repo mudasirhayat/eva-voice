@@ -174,9 +174,12 @@ self.device = device
             seg.export(path, format="wav")
             command = ["ffplay", path, "-nodisp", "-autoexit", "-loglevel", "quiet"]
             subprocess.call(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            os.remove(path)  # Clean up temporary file
-            
-        playback._play_with_ffplay = patched_play_with_ffplay
+try:
+    os.remove(path)  # Clean up temporary file
+except FileNotFoundError:
+    pass
+
+playback._play_with_ffplay = patched_play_with_ffplay
 
     def load_model(self) -> None:
         """Load the TTS model and prepare context for generation."""
