@@ -56,9 +56,10 @@ except ValueError as ve:
     try:
         # Code that may raise an exception
     except Exception as e:
-        print(f"An error occurred: {e}")
-) -> bool:
-watermarked_audio_resampled = torchaudio.functional.resample(watermarked_audio, orig_freq=sample_rate, new_freq=44100)
+try:
+    watermarked_audio_resampled = torchaudio.functional.resample(watermarked_audio, orig_freq=sample_rate, new_freq=44100)
+except Exception as e:
+    print(f"An error occurred: {e}")
 decoded_result = watermarker.decode_wav(watermarked_audio_resampled, 44100, phase_shift
     if is_watermarked:
         is_csm_watermarked = result["messages"][0] == watermark_key
