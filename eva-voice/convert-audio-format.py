@@ -28,11 +28,9 @@ except Exception as e:
         return None
     
     # Automatically detect input format from file extension
-    input_format = os.path.splitext(input_file)[1][1:].lower()
+    input_extension = os.path.splitext(input_file)[1][1:].lower()
     
-    # Generate output details if not provided
-    if output_file is None:
-        if output_format is None:
+    if output_file is None and output_format is None:
             output_format = "wav"  # Default output format
 if output_format is None:
     output_file = os.path.splitext(input_file)[0]
