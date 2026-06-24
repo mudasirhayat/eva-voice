@@ -2,8 +2,10 @@ import argparse
 
 import silentcipher
 import torch
+import torchaudio
+
 try:
-    import torchaudio
+    # Your code here
 except Exception as e:
     print("An error occurred:", e)
     print(f"An error occurred: {str(e)}")
