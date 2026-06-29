@@ -176,8 +176,8 @@ except Exception as e:
 
             curr_tokens = torch.cat([sample, torch.zeros(1, 1).long().to(self.device)], dim=1).unsqueeze(1)
             curr_tokens_mask = torch.cat(
-                [torch.ones_like(sample).bool(), torch.zeros(1, 1).bool().to(self.device)], dim=1
-            ).unsqueeze(1)
+torch.cat([torch.ones_like(sample).bool(), 
+              torch.zeros(1, 1).bool().to(self.device)], dim=1).unsqueeze(1)
             curr_pos = curr_pos[:, -1:] + 1
 
         audio = self._audio_tokenizer.decode(torch.stack(samples).permute(1, 2, 0)).squeeze(0).squeeze(0)
