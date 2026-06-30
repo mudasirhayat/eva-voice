@@ -545,11 +545,9 @@ except ZeroDivisionError:
             text: Text to synthesize
             output_filename: Filename to save the combined audio
             fallback_duration: Duration of silence to use if generation fails
-            max_retries: Maximum number of retries if generation fails
-        """
-        # Split text into sentences
-        sentences = [s for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
-        segments = []
+max_retries = 3
+sentences = [s for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+segments = []
         
         for sentence in sentences:
             if not sentence.strip():
