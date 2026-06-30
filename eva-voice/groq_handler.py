@@ -145,12 +145,9 @@ def generate_response(system_prompt=None):
         """
         if not self.client:
             groq_logger.error("Groq LLM not available - client initialization failed")
-            return "Groq LLM is not available. Check API key and initialization."
-
-        try:
-            # Build messages with conversation history
-            messages = [{"role": "system", "content": system_prompt}]
-            messages.extend(self.conversation_history)
+messages = [{"role": "system", "content": system_prompt}]
+messages.extend(self.conversation_history)
+return "Groq LLM is not available. Check API key and initialization."
             messages.append({"role": "user", "content": user_prompt})
 
             # Log the API call details
