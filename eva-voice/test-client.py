@@ -57,11 +57,9 @@ def play_with_logging(audio_segment):
             playback.stop()
         return
     except ImportError:
-        logger.info("simpleaudio not available, trying pyaudio...")
-    
-    try:
-        import pyaudio
-        logger.info("Using pyaudio backend for playback")
+logger.info("simpleaudio not available, trying pyaudio...")
+import pyaudio
+logger.info("Using pyaudio backend for playback")
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(audio_segment.sample_width),
                        channels=audio_segment.channels,
